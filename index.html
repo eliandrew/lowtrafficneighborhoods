@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f8f2">
+<meta name="description" content="Explore a community concept for quieter streets in South Wallingford. Compare car routes and see how seven proposed right-turn-only circles would work.">
+<title>South Wallingford — A little less traffic.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Fraunces:opsz,wght@9..144,500;9..144,550;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f7f8f2;--white:#fff;--ink:#20392f;--muted:#647068;--green:#245b43;--green-pale:#e6ede0;--line:#dfe3d9;--orange:#bc5434;--orange-pale:#faeee6;--blue:#647c98;--sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--serif:'Fraunces',Georgia,serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 var(--sans);-webkit-font-smoothing:antialiased}button,select,input{font:inherit}button,a,select{-webkit-tap-highlight-color:transparent}button{cursor:pointer;color:inherit;border:0}a{color:inherit;text-underline-offset:4px}button svg,a svg{flex:none}svg{display:block}h1,h2,h3,p{margin:0}button:disabled{cursor:default;opacity:.4}button:focus-visible,a:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid #9a6534;outline-offset:4px}button,select{touch-action:manipulation}button,.route-select{min-height:44px}[hidden]{display:none!important}.shell{max-width:1360px;margin:auto;padding-inline:52px}.skip-link{position:absolute;left:16px;top:-100px;z-index:10;background:var(--ink);color:#fff;padding:12px}.skip-link:focus{top:12px}.eyebrow{display:flex;align-items:center;gap:9px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.7px}.seed{width:7px;height:7px;border-radius:50%;background:var(--green)}.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.site-header{display:flex;align-items:center;justify-content:space-between;min-height:98px;border-bottom:1px solid var(--line);gap:20px}.brand{display:flex;gap:12px;align-items:center;text-decoration:none}.brand-mark{width:37px;height:37px;color:var(--green)}.brand-name{font-size:17px;letter-spacing:-.5px;font-weight:650;line-height:1.25}.brand-sub{display:block;font-size:9px;letter-spacing:2px;font-weight:600;margin-top:5px}.nav{display:flex;gap:30px;align-items:center}.nav a{text-decoration:none;color:var(--muted);font-size:12px;font-weight:500}.nav a:hover{color:var(--green)}.nav .nav-cta{display:flex;align-items:center;gap:22px;padding:11px 18px;border:1px solid #bac7b7;border-radius:5px;color:var(--ink)}.nav-cta svg{width:15px;height:15px}
+.hero{padding:52px 0 42px;display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:end}.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(46px,5.3vw,74px);letter-spacing:-3.4px;line-height:1.08;margin-top:20px}.hero h1 em{font-style:normal;color:var(--green)}.hero-copy{max-width:345px;justify-self:end;padding-bottom:5px}.hero-copy p{font-size:14px;color:var(--muted);line-height:1.85}.hero-copy p strong{color:var(--ink);font-weight:500}.hero-link{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;text-decoration:none;margin-top:21px}.hero-link:hover{gap:16px}.hero-link svg{width:16px}.context-strip{border-top:1px solid var(--line);padding:18px 0 30px;display:flex;justify-content:space-between;gap:20px;font-size:11px;color:var(--muted)}.context-strip .location{display:flex;gap:8px;align-items:center}.context-strip svg{width:14px;height:14px}.context-facts{display:flex;align-items:center;gap:21px}.context-facts span+span{border-left:1px solid #cbd4c7;padding-left:21px}.context-facts b{font-weight:650;color:var(--ink)}
+.explorer{background:#fff;border:1px solid #d5ddcf;border-radius:12px;overflow:hidden;box-shadow:0 7px 30px #24392d05}.explorer-heading{padding:23px 27px;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--line)}.explorer-heading h2{font-family:var(--serif);font-size:25px;font-weight:500;letter-spacing:-.8px}.explorer-heading p{color:var(--muted);font-size:11px;margin-top:3px}.live-badge{display:flex;align-items:center;gap:7px;white-space:nowrap;font-size:10px;color:var(--green);background:#eef3e8;padding:6px 10px;border-radius:20px}.live-badge span{height:5px;width:5px;background:#4c7652;border-radius:50%}.explorer-body{display:grid;grid-template-columns:310px minmax(0,1fr)}.planner{padding:24px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:20px}.planner-top{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:650}.driving{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:10px;font-weight:450}.driving svg{height:16px;width:16px}.endpoints{position:relative;display:grid;gap:10px}.endpoint{position:relative;padding:10px 36px 10px 39px;border:1px solid var(--line);border-radius:6px;background:#fff}.endpoint.active{border-color:#65816b;box-shadow:0 0 0 2px #eff3e9}.endpoint-letter{position:absolute;left:12px;top:15px;width:18px;height:18px;border-radius:50%;background:var(--ink);color:#fff;text-align:center;font-size:10px;line-height:18px;font-weight:600}.endpoint-letter.b{background:var(--orange)}.endpoint label{font-size:9px;text-transform:uppercase;letter-spacing:1px;display:block;font-weight:650;color:var(--muted)}.route-select{display:block;width:100%;min-height:25px;border:0;background:transparent;padding:0 12px 0 0;font-size:11px;line-height:1.4;color:var(--ink);cursor:pointer;text-overflow:ellipsis}.pick-map{position:absolute;right:7px;top:10px;background:transparent;width:28px;min-height:36px;display:grid;place-items:center;border-radius:4px;color:#788373}.pick-map:hover,.pick-map[aria-pressed=true]{background:var(--green-pale);color:var(--green)}.pick-map svg{width:15px;height:15px}.endpoint-actions{display:flex;justify-content:space-between}.text-button{display:inline-flex;align-items:center;gap:5px;background:none;font-size:10px;padding:0;min-height:30px;color:var(--muted)}.text-button:hover{color:var(--green)}.text-button svg{height:13px;width:13px}.quick-trips{border-top:1px solid var(--line);padding-top:16px}.section-label{font-size:9px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-weight:650;display:block}.presets{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.preset{padding:6px 10px;border:1px solid var(--line);border-radius:4px;background:white;font-size:10px;min-height:31px}.preset:hover{border-color:#92a58d}.preset[aria-pressed=true]{color:var(--green);background:#edf2e8;border-color:#b7c9af}.route-results{padding-top:17px;border-top:1px solid var(--line)}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.route-card{background:#f6f6f2;padding:11px;border:1px solid #ecede7;border-radius:6px}.route-card.proposed{background:#eef3e8;border-color:#dce5d5}.route-name{font-size:10px;display:flex;gap:6px;align-items:center;font-weight:500}.swatch{display:inline-block;width:16px;height:0;border-top:3px solid var(--green);flex:none}.swatch.today{border-color:var(--orange);border-top-style:dashed}.duration{font-size:26px;letter-spacing:-1px;line-height:1.2;font-weight:500;margin-top:8px;font-variant-numeric:tabular-nums}.duration small{font-size:11px;font-weight:450;letter-spacing:0}.distance{font-size:10px;color:var(--muted);margin-top:4px}.verdict{font-size:11px;line-height:1.65;padding:13px 0 0;color:var(--muted)}.verdict strong{font-weight:650;color:var(--ink)}.result-empty{font-size:12px;color:var(--muted);background:#f6f7f2;padding:17px;border-radius:6px}.route-details{margin-top:12px}.route-details summary{font-size:10px;color:var(--muted);cursor:pointer;padding:5px 0}.route-details p{font-size:10px;color:var(--muted);padding:7px 0}.route-details b{display:block;font-weight:600;color:var(--ink)}.model-note{font-size:9px;line-height:1.7;color:#737b71;margin-top:auto;padding-top:3px}
+.map-panel{position:relative;min-width:0;background:#f2f4ec;display:flex;flex-direction:column}.map-toolbar{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;gap:10px;z-index:1}.map-title{font-size:9px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;display:flex;align-items:center;gap:7px;color:var(--muted)}.map-title svg{height:14px;width:14px}.view-switch{display:flex;background:#e7eadf;padding:3px;border-radius:6px}.view-switch button{font-size:10px;min-height:31px;padding:5px 13px;background:transparent;color:var(--muted);border-radius:4px}.view-switch button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 1px 4px #28362b14}.map-wrap{position:relative;flex:1;display:flex;align-items:center;justify-content:center;padding:0 14px}.map-svg{width:100%;max-height:550px;overflow:visible;touch-action:manipulation;cursor:crosshair}.map-svg .street-border{stroke:#d6dece;stroke-width:13;stroke-linecap:round;fill:none;stroke-linejoin:round}.map-svg .street{stroke:#fffdf8;stroke-width:10;stroke-linecap:round;fill:none;stroke-linejoin:round}.map-svg .arterial-border{stroke:#b7c3ab;stroke-width:21;stroke-linecap:round;fill:none}.map-svg .arterial{stroke:#e6e9df;stroke-width:17;stroke-linecap:round;fill:none}.map-svg .arterial-center{stroke:#fffdf8;stroke-width:1;stroke-dasharray:5 5;fill:none}.map-svg .map-label{fill:#5e6e60;font:500 8px var(--sans);paint-order:stroke;stroke:#f5f6ed;stroke-width:3px;stroke-linejoin:round;pointer-events:none}.map-svg .arterial-label{fill:#4b604a;font:600 9px var(--sans);letter-spacing:1px;paint-order:stroke;stroke:#f2f4ec;stroke-width:4px;pointer-events:none}.map-svg .area-letter{fill:#758267;font:500 27px var(--serif);opacity:.48;pointer-events:none}.map-svg .route-plan{fill:none;stroke:var(--green);stroke-width:6.5;stroke-linecap:round;stroke-linejoin:round;opacity:.88;pointer-events:none}.map-svg .route-today{fill:none;stroke:var(--orange);stroke-width:3.4;stroke-dasharray:7 6;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}.map-svg .route-halo{fill:none;stroke:#fffdf4;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;opacity:.9;pointer-events:none}.map-pin{cursor:pointer;outline:none}.map-pin .pin-ring{fill:#fffef8;stroke:#5e7850;stroke-width:1.5;transition:fill .15s,stroke-width .15s}.map-pin text{fill:#395533;font:650 9px var(--sans);text-anchor:middle;pointer-events:none}.map-pin:hover .pin-ring,.map-pin:focus-visible .pin-ring{stroke-width:3;stroke:#284825}.map-pin.selected .pin-ring{fill:var(--green);stroke:var(--green)}.map-pin.selected text{fill:#fff}.map-pin .pin-halo{fill:#6b8b4c;opacity:0}.map-pin.selected .pin-halo{opacity:.16}.map-marker{pointer-events:none}.map-marker circle{stroke:#fffef7;stroke-width:3;fill:var(--ink)}.map-marker.destination circle{fill:var(--orange)}.map-marker text{fill:#fff;text-anchor:middle;font:650 10px var(--sans)}.ghost{fill:var(--green);stroke:#fff;stroke-width:2;opacity:.7;pointer-events:none}.map-footer{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:17px 22px}.map-legend{display:flex;gap:16px;align-items:center;font-size:9px;color:var(--muted);flex-wrap:wrap}.map-legend span{display:flex;gap:6px;align-items:center}.legend-pin{height:13px;width:13px;border-radius:50%;border:1.5px solid #5e7850;background:#fffef8;display:grid!important;place-items:center;font-size:8px;color:var(--green);font-style:normal}.schematic-note{font-size:8px;text-align:right;color:#75806f}.map-instruction{font-size:10px;text-align:center;padding:9px 14px;border-top:1px solid #dfe5d5;color:#5e6e58;background:#eaf0e1;min-height:35px}.circle-popup{position:absolute;left:26px;bottom:18px;max-width:290px;z-index:3;background:#fffef9;border:1px solid #c5d1bc;box-shadow:0 8px 30px #233d2715;border-radius:8px;padding:17px 34px 17px 17px}.popup-kicker{font-size:9px;text-transform:uppercase;letter-spacing:1.2px;color:var(--green);font-weight:650}.circle-popup h3{font-size:13px;font-weight:600;margin-top:5px;line-height:1.45}.circle-popup p{font-size:11px;color:var(--muted);margin-top:5px}.close-popup{position:absolute;right:5px;top:5px;width:28px;min-height:28px;background:none;display:grid;place-items:center;color:var(--muted)}.close-popup svg{height:14px;width:14px}
+.idea{padding:88px 0 72px}.section-intro{display:flex;justify-content:space-between;align-items:end;gap:30px}.section-intro h2,.circles-heading h2,.questions h2{font:500 40px/1.2 var(--serif);letter-spacing:-1.5px;margin-top:12px}.section-intro>p{color:var(--muted);font-size:13px;line-height:1.85;max-width:350px}.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:38px}.principle{border-top:1px solid #cbd6c4;padding-top:23px}.principle-icon{width:40px;height:40px;color:var(--green);margin-bottom:17px}.principle h3{font-size:15px;font-weight:600;margin-bottom:8px;letter-spacing:-.2px}.principle p{font-size:12px;color:var(--muted);line-height:1.85;max-width:320px}.principle-number{font-size:9px;font-weight:500;letter-spacing:1px;color:#75846d;display:block;margin-bottom:7px}.circles-section{border-top:1px solid var(--line);padding:67px 0 70px}.circles-heading{max-width:620px}.circles-heading p{font-size:13px;color:var(--muted);line-height:1.8;margin-top:15px;max-width:570px}.circle-layout{display:grid;grid-template-columns:1fr 1fr;gap:62px;margin-top:35px;align-items:start}.treatment-list{border-top:1px solid var(--line)}.treatment{background:none;border-bottom:1px solid var(--line);padding:17px 4px;width:100%;display:grid;grid-template-columns:32px 1fr 16px;text-align:left;gap:12px;align-items:center}.treatment:hover,.treatment.selected{background:#edf1e6}.treatment .number{width:28px;height:28px;border:1px solid #a9bd99;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:600;color:var(--green)}.treatment.selected .number{background:var(--green);color:#fff;border-color:var(--green)}.treatment b{font-size:12px;font-weight:550;display:block}.treatment small{font-size:10px;color:var(--muted);display:block;line-height:1.6;margin-top:3px}.treatment .icon{height:14px;width:14px;color:#7c8b72}.circle-explanation{background:#eaf0e2;border:1px solid #dce4d4;padding:27px 28px;border-radius:8px}.circle-explanation .eyebrow{font-size:9px;letter-spacing:1.3px}.circle-explanation h3{font:500 26px/1.25 var(--serif);letter-spacing:-.7px;margin:10px 0 8px}.circle-explanation>p{font-size:11px;line-height:1.8;color:#5e6f56}.junction-svg{width:100%;max-width:330px;margin:20px auto 16px}.junction-svg .car-flow{fill:none;stroke:var(--green);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.junction-svg .bike-flow{fill:none;stroke:#6685a2;stroke-width:2;stroke-dasharray:3 5}.diagram-legend{display:flex;justify-content:center;gap:20px;font-size:10px;color:#506548}.diagram-legend span{display:flex;align-items:center;gap:7px}.diagram-legend i{width:17px;border-top:2px solid var(--green)}.diagram-legend .bike{border-color:#6685a2;border-top-style:dashed}.diagram-note{font-size:9px!important;color:#6d7a65!important;border-top:1px solid #cedac3;margin-top:22px;padding-top:14px;line-height:1.8!important}.questions{border-top:1px solid var(--line);display:grid;grid-template-columns:.8fr 1.2fr;gap:85px;padding:66px 0 82px}.questions h2{font-size:36px}.questions-intro>p{font-size:12px;color:var(--muted);margin-top:17px;max-width:275px;line-height:1.85}.faqs{border-top:1px solid var(--line)}.faqs details{border-bottom:1px solid var(--line)}.faqs summary{padding:19px 28px 19px 0;list-style:none;font-size:12px;font-weight:550;cursor:pointer;position:relative}.faqs summary::-webkit-details-marker{display:none}.faqs summary::after{content:'+';font-size:19px;font-weight:400;color:#7e8a74;position:absolute;right:1px;top:14px}.faqs details[open] summary::after{content:'−'}.faq-answer{font-size:11px;line-height:1.9;color:var(--muted);padding:0 16px 20px 0}.faq-answer p+p{margin-top:12px}.faq-answer ul{margin:10px 0 0;padding-left:17px}.faq-answer li+li{margin-top:8px}.faq-answer b{font-weight:550;color:var(--ink)}.faq-table{width:100%;border-collapse:collapse;font-size:10px;margin:12px 0}.faq-table th,.faq-table td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}.faq-table th{color:var(--ink);font-weight:550}.faq-table th:first-child{padding-left:0}.faq-table td:first-child{padding-left:0;width:38%}.footer-callout{padding:29px 33px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:22px;color:#f5f7eb;margin-bottom:46px}.footer-callout h2{font:500 25px/1.3 var(--serif);letter-spacing:-.5px}.footer-callout p{font-size:11px;color:#d1dfc9;margin-top:5px}.footer-callout a{display:flex;gap:20px;align-items:center;text-decoration:none;font-size:11px;padding:11px 17px;background:#f3f5e8;color:var(--green);border-radius:4px;white-space:nowrap}.footer-callout .icon{width:15px;height:15px}.site-footer{border-top:1px solid var(--line);padding:23px 0 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:9px;color:var(--muted)}.site-footer b{font-weight:550;color:var(--ink)}.site-footer p{max-width:460px;text-align:right}.noscript-note{padding:18px;background:var(--orange-pale);color:#843b26;font-size:13px}
+@media(min-width:1500px){.shell{padding-inline:42px}.hero{padding-top:59px;padding-bottom:47px}}
+@media(max-width:1100px){.shell{padding-inline:32px}.nav{gap:22px}.hero h1{font-size:60px;letter-spacing:-2.8px}.hero-copy{max-width:290px}.explorer-body{grid-template-columns:285px minmax(0,1fr)}.planner{padding:20px}.map-toolbar{padding:17px}.map-title{font-size:8px;letter-spacing:.8px}.view-switch button{padding:5px 10px}.circle-layout{gap:35px}.questions{gap:45px}.map-footer{padding-inline:17px}.map-legend{gap:10px}.schematic-note{max-width:90px}}
+@media(max-width:860px){.shell{padding-inline:26px}.site-header{min-height:85px}.nav a:not(.nav-cta){display:none}.hero{grid-template-columns:1.25fr 1fr;gap:26px;padding-top:42px}.hero h1{font-size:49px;letter-spacing:-2px}.hero-copy p{font-size:12px}.hero .eyebrow{font-size:9px;letter-spacing:1.2px}.context-strip{font-size:9px}.context-facts{gap:10px}.context-facts span+span{padding-left:10px}.explorer-body{grid-template-columns:250px minmax(0,1fr)}.planner{padding:18px;gap:17px}.map-toolbar{flex-direction:column;gap:12px;padding:18px 12px}.map-title{font-size:8px}.map-svg{max-height:560px}.map-wrap{padding:0 4px}.map-footer{flex-direction:column;gap:8px}.schematic-note{max-width:none;text-align:center}.map-legend{justify-content:center}.map-instruction{font-size:9px}.duration{font-size:22px}.section-intro h2,.circles-heading h2{font-size:34px}.section-intro>p{font-size:12px;max-width:260px}.principles{gap:25px}.idea{padding-top:65px;padding-bottom:55px}.circle-layout{gap:24px}.circle-explanation{padding:23px 20px}.treatment{padding-block:14px;gap:9px}.questions{gap:32px}.questions h2{font-size:31px}}
+@media(max-width:650px){.shell{padding-inline:20px}.site-header{min-height:78px}.brand-mark{width:30px;height:30px}.brand-name{font-size:15px}.brand-sub{font-size:8px;letter-spacing:1.5px}.nav .nav-cta{padding:9px 11px;font-size:10px;gap:10px}.hero{grid-template-columns:1fr;gap:25px;padding:35px 0 25px}.hero h1{font-size:clamp(40px,9.2vw,59px);letter-spacing:-2.2px;line-height:1.1;margin-top:16px}.hero-copy{justify-self:start;max-width:420px;padding:0}.hero-copy p{font-size:13px;line-height:1.8}.hero-link{margin-top:14px}.context-strip{flex-direction:column;gap:13px;padding:17px 0 23px;font-size:10px}.context-facts{gap:13px}.context-facts span+span{padding-left:13px}.explorer-heading{padding:19px 18px;gap:10px;align-items:flex-start}.explorer-heading h2{font-size:23px}.explorer-heading p{max-width:205px;font-size:10px}.live-badge{font-size:8px;padding:5px 8px;margin-top:4px}.explorer-body{grid-template-columns:1fr;display:flex;flex-direction:column}.planner{display:contents}.planner-top{order:0;padding:18px 18px 0}.endpoints{order:1;margin:12px 18px 0;grid-template-columns:1fr 1fr;gap:9px}.endpoint{padding:10px 26px 10px 32px;min-width:0}.endpoint-letter{left:9px;width:16px;height:16px;line-height:16px;font-size:9px}.route-select{font-size:10px}.pick-map{right:2px;width:23px}.endpoint label{font-size:8px}.endpoint-actions{grid-column:1/-1;margin-top:-4px}.quick-trips{order:2;margin:12px 18px 17px;padding-top:12px}.presets{margin-top:8px;gap:6px}.preset{font-size:9px;padding:6px 9px;min-height:31px}.map-panel{order:3;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.map-toolbar{flex-direction:row;padding:14px 14px 5px}.map-title{font-size:8px;letter-spacing:.7px}.view-switch button{font-size:9px;min-height:30px;padding:5px 9px}.map-wrap{padding:8px 6px 0}.map-svg{max-height:500px}.map-footer{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:9px;padding:8px 12px 13px}.map-legend{gap:13px}.map-instruction{font-size:9px;padding:9px 12px}.route-results{order:4;border:0;margin:0;padding:18px}.result-grid{gap:10px}.route-card{padding:14px}.duration{font-size:28px}.route-name{font-size:11px}.distance{font-size:11px}.verdict{font-size:12px;line-height:1.85}.route-details summary,.route-details p{font-size:11px}.model-note{order:5;padding:0 18px 18px;margin:0;font-size:9px}.circle-popup{left:15px;bottom:14px;max-width:260px;padding:14px 30px 14px 14px}.section-intro{display:block}.section-intro h2,.circles-heading h2{font-size:34px;letter-spacing:-1.4px}.section-intro>p{margin-top:19px;max-width:430px;font-size:12px}.principles{grid-template-columns:1fr;gap:25px;margin-top:27px}.principle{padding:22px 0 0 55px;position:relative}.principle-icon{position:absolute;left:0;top:28px;width:35px;height:35px}.principle-number{font-size:8px}.principle h3{font-size:15px}.principle p{max-width:430px;font-size:12px}.idea{padding:49px 0 44px}.circles-section{padding:41px 0 44px}.circle-layout{grid-template-columns:1fr;gap:25px;margin-top:25px}.circle-explanation{padding:23px}.junction-svg{max-width:310px}.circles-heading p{font-size:12px}.treatment{padding-block:17px}.treatment b{font-size:12px}.treatment small{font-size:11px}.questions{display:block;padding:42px 0 45px}.questions-intro>p{max-width:400px}.faqs{margin-top:26px}.faqs summary{font-size:12px;padding-block:20px}.faq-answer{font-size:12px}.footer-callout{display:block;padding:25px 23px;margin-bottom:32px}.footer-callout h2{font-size:25px}.footer-callout p{font-size:11px;max-width:250px}.footer-callout a{display:inline-flex;margin-top:20px}.site-footer{align-items:start;flex-direction:column;gap:10px;padding:22px 0 28px}.site-footer p{text-align:left;max-width:320px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+@media print{body{background:#fff}.shell{padding-inline:0;max-width:none}.nav,.hero-link,.endpoint-actions,.pick-map,.quick-trips,.view-switch,.footer-callout,.circle-popup{display:none!important}.site-header{min-height:60px}.hero{padding-block:25px}.hero h1{font-size:43px}.explorer{box-shadow:none;break-inside:avoid}.explorer-body{display:grid;grid-template-columns:250px 1fr}.planner{display:flex;padding:15px}.map-panel{display:flex}.map-svg{max-height:460px}.map-toolbar{flex-direction:row}.endpoints{display:block;margin:0}.endpoint+.endpoint{margin-top:8px}.route-results{padding:0}.model-note{padding:0}.idea,.circles-section,.questions{padding-block:30px}.circle-layout{display:grid;grid-template-columns:1fr 1fr}.questions{display:block}.faqs{margin-top:20px}h2,h3{break-after:avoid}.principle,.circle-explanation,.treatment{break-inside:avoid}.site-footer{padding-bottom:0}}
+
+/* Keep the map legible at small sizes, with closer inspection on demand. */
+.map-svg{overflow:hidden}.map-svg .map-label{font-size:10.5px}.map-svg .arterial-label{font-size:11px}.map-pin text{font-size:10.5px}.map-svg.zoomed{touch-action:none;cursor:grab}.map-svg.dragging{cursor:grabbing}.map-zoom{display:flex;align-items:center;gap:2px;border:1px solid #d0dac7;border-radius:5px;padding:2px;background:#fafbf6}.map-zoom button{min-height:30px;min-width:31px;padding:3px 8px;background:transparent;border-radius:3px;font-size:14px}.map-zoom button:hover:not(:disabled){background:#e5eddd}.map-zoom #zoom-fit{font-size:10px}.map-footer{flex-wrap:wrap}.map-title{font-size:10px;letter-spacing:1px}.map-legend{font-size:10px}.schematic-note{font-size:9px}.route-select{font-size:12px}.planner-top{font-size:12px}.text-button{font-size:11px;min-height:34px}.preset{font-size:11px;min-height:34px}.route-name{font-size:11px}.verdict{font-size:12px}.route-details summary{font-size:11px}.model-note{font-size:10px}.principle p{font-size:13px}.treatment b{font-size:13px}.treatment small{font-size:11px}.faqs summary{font-size:13px}.faq-answer{font-size:12px}
+@media(max-width:1100px){.map-legend{gap:10px}.map-title{font-size:9px}}
+@media(max-width:860px){.map-footer{flex-direction:row;justify-content:center}.map-title{font-size:9px}.route-select{font-size:11px}.planner{gap:16px}.preset{font-size:10px}}
+@media(max-width:650px){.endpoints{grid-template-columns:1fr;gap:9px}.endpoint{padding:10px 39px 10px 39px}.endpoint-letter{left:12px;top:18px;width:18px;height:18px;line-height:18px;font-size:10px}.endpoint label{font-size:9px}.route-select{font-size:13px;min-height:29px}.pick-map{right:7px;top:12px;width:30px;min-height:36px}.endpoint-actions{margin-top:0}.explorer-heading{display:block;position:relative;padding-top:41px}.explorer-heading h2{font-size:24px}.explorer-heading p{max-width:none;font-size:11px}.live-badge{position:absolute;top:10px;left:18px;margin:0;font-size:8px;padding:3px 8px}.map-title{font-size:8px;letter-spacing:.5px}.view-switch button{font-size:10px;padding-inline:8px}.map-footer{padding-top:12px;gap:11px}.map-legend{gap:12px;width:100%;font-size:9px}.map-zoom button{min-height:32px;min-width:34px}.schematic-note{margin-left:8px}.model-note{font-size:10px}.map-instruction{font-size:10px}.preset{font-size:10px;min-height:34px}.treatment small{font-size:11px}.faqs summary{font-size:13px}.circle-popup{bottom:10px}.principle p{font-size:13px}}
+@media print{.map-zoom{display:none}}
+
+
+
+.lab-controls{padding:24px 27px;border-bottom:1px solid var(--line);background:#fafbf7}.configuration-picker{display:flex;align-items:end;justify-content:space-between;gap:15px}.configuration-picker>div{min-width:0;max-width:450px;width:100%}.configuration-picker label{margin-bottom:7px}.configuration-picker select{font-size:16px;font-weight:550;width:100%;max-width:400px;padding:9px 35px 9px 12px;border:1px solid #bdcdb4;border-radius:6px;background:#fff;color:var(--ink);min-height:45px}.lab-button{border:1px solid #79916e;background:#eaf0e3;color:var(--green);padding:10px 16px;border-radius:5px;font-size:12px;white-space:nowrap;display:flex;align-items:center;gap:16px}.lab-button:hover{background:#dfe9d6}.configuration-description{font-size:12px;color:var(--muted);line-height:1.8;margin-top:11px;max-width:850px}.configuration-status{font-size:11px;margin-top:12px;color:var(--green);display:flex;align-items:center;gap:8px}.configuration-status::before{content:'';height:7px;width:7px;border-radius:50%;background:#548151;flex:none}.configuration-status.has-issues{color:#8e3823;font-weight:550}.configuration-status.has-issues::before{background:#b3472f}.custom-toolbar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:18px}.edit-switch{display:flex;padding:3px;background:#e2e9db;border-radius:6px}.edit-switch button{font-size:11px;background:none;border-radius:4px;padding:7px 13px;min-height:35px}.edit-switch button[aria-pressed=true]{background:var(--green);color:#fff}.custom-help{font-size:11px;color:var(--muted);line-height:1.8;margin-top:11px}.map-panel.editing{box-shadow:inset 0 0 0 2px #8ea77b}.map-panel.editing .map-svg{cursor:pointer}.map-pin.restricted .pin-ring{fill:#285b42;stroke:#285b42}.map-pin.restricted text{fill:#fff}.map-pin.unrestricted .pin-ring{fill:#f8faf4;stroke:#9baa8d;stroke-dasharray:2 2}.map-pin.unrestricted text{fill:#64775b}.map-pin.t-junction .pin-ring{stroke:#ac792b}.map-pin.t-junction.restricted .pin-ring{fill:#a64227;stroke:#a64227}.map-pin .pin-label{pointer-events:none}.map-pin .pin-halo{r:19}.map-svg .problem-edge{stroke:#b4452f;stroke-width:5;stroke-dasharray:3 4;fill:none;pointer-events:none;opacity:.85}.map-pin:focus-visible .pin-ring{stroke:#925a16;stroke-width:4}.comparison-section{padding:28px 27px;border-top:1px solid var(--line)}.comparison-heading{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:20px}.comparison-heading h3,.network-heading h3{font:500 26px/1.3 var(--serif);letter-spacing:-.7px;margin-top:7px}.comparison-heading .eyebrow,.network-heading .eyebrow{font-size:9px;letter-spacing:1.3px}.comparison-heading>p{font-size:11px;color:var(--muted)}.comparison-scroll{overflow:auto}.configuration-table{border-collapse:collapse;width:100%;font-size:12px}.configuration-table th{text-align:left;color:var(--muted);font-size:10px;font-weight:550;padding:9px 12px;border-bottom:1px solid #cfdac7;white-space:nowrap}.configuration-table th:first-child,.configuration-table td:first-child{padding-left:12px}.configuration-table td{padding:11px 12px;border-bottom:1px solid #e5e9df;vertical-align:middle}.configuration-table tr.active{background:#edf3e6}.configuration-table tr.active td:first-child{box-shadow:inset 3px 0 0 var(--green)}.configuration-table td small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.configuration-table button{background:none;padding:2px 0;min-height:36px;text-align:left;font-size:12px;font-weight:600;color:var(--ink)}.configuration-table button:hover{text-decoration:underline;text-underline-offset:4px}.configuration-table td:nth-child(2){font-weight:550;font-variant-numeric:tabular-nums;white-space:nowrap}.configuration-table td:nth-child(3),.configuration-table td:nth-child(4){font-variant-numeric:tabular-nums}.access-pill{display:inline-block;font-size:10px;color:#386144;background:#edf3e8;border:1px solid #d4e2c9;border-radius:4px;padding:4px 7px;white-space:nowrap}.access-pill.issue{color:#9d422c;background:#fbede5;border-color:#e8c4b4}.comparison-caption{font-size:10px;color:var(--muted);line-height:1.8;margin-top:15px;max-width:850px}.network-section{padding:27px;background:#f4f7ee;border-top:1px solid var(--line)}.network-heading{display:flex;justify-content:space-between;align-items:center;gap:15px}.network-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:23px 0 16px}.network-stat{border-top:1px solid #c9d6be;padding-top:13px}.network-stat b{display:block;font:500 28px/1.1 var(--serif);letter-spacing:-.8px}.network-stat span{display:block;font-size:11px;font-weight:550;margin-top:8px}.network-stat small{font-size:10px;line-height:1.7;color:var(--muted);display:block;margin-top:4px}.network-warning{background:#fbeee4;border:1px solid #e3c6b2;border-radius:6px;padding:14px 17px;color:#823d29;font-size:12px;line-height:1.85;margin:17px 0}.network-warning ul{margin:7px 0;padding-left:20px}.audit-details{font-size:11px;color:var(--muted);line-height:1.9}.audit-details summary{cursor:pointer;min-height:36px;padding:8px 0;font-weight:550;color:#516447}.audit-details p{margin:10px 0;max-width:960px}.crossing-examples{border-top:1px solid #d9e2cf;margin-top:15px;padding-top:16px}.crossing-examples h4{font-size:12px;font-weight:600;margin:0 0 8px}.crossing-examples p{font-size:11px;line-height:1.8;color:var(--muted);margin-bottom:10px}.crossing-example{display:flex;justify-content:space-between;gap:16px;align-items:center;font-size:11px;color:var(--ink);padding:12px 0;border-top:1px solid #dfe6d7}.crossing-example small{display:block;color:var(--muted);line-height:1.8;margin-top:3px}.crossing-example button{border:1px solid #aabc99;min-height:35px;white-space:nowrap;background:#fbfcf7;border-radius:4px;padding:6px 10px;font-size:10px}.findings-section{padding:70px 0 55px;border-top:1px solid var(--line)}.findings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;margin:35px 0}.findings-grid article{border-top:1px solid #c7d5bf;padding-top:18px}.finding-number{font:500 33px/1.2 var(--serif);color:var(--green);letter-spacing:-1px}.findings-grid h3{font-size:14px;line-height:1.6;margin-top:15px;font-weight:550}.findings-grid p{font-size:12px;color:var(--muted);line-height:1.9;margin-top:8px}.finding-caution{padding:19px 23px;border-left:3px solid #ba7644;background:#f4f0e5;font-size:12px;color:#6d604a;line-height:1.9;margin-bottom:20px}.finding-caution b{color:#6a5237}.findings-section .section-intro h2{font-size:38px}.findings-section .section-intro>p{max-width:400px}.configuration-count{font-weight:400;color:var(--muted)}
+@media(max-width:860px){.network-metrics{gap:13px}.network-stat b{font-size:24px}.network-stat span{font-size:10px}.network-stat small{font-size:9px}.comparison-heading{display:block}.comparison-heading>p{margin-top:9px}.findings-grid{gap:23px}.findings-section .section-intro{display:block}.findings-section .section-intro>p{margin-top:20px;max-width:600px}.configuration-table{min-width:650px}.network-heading h3{font-size:23px}}
+@media(max-width:650px){.lab-controls{padding:20px 18px}.configuration-picker{align-items:stretch;flex-direction:column;gap:12px}.configuration-picker select{max-width:none;font-size:15px}.lab-button{align-self:start;font-size:11px;padding:8px 12px;min-height:38px}.configuration-description{font-size:12px}.configuration-status{font-size:11px;align-items:start}.configuration-status::before{margin-top:6px}.custom-toolbar{gap:10px 17px}.edit-switch{width:100%}.edit-switch button{flex:1;font-size:11px}.custom-help{font-size:11px}.comparison-section{padding:23px 18px}.comparison-heading h3{font-size:24px}.comparison-heading .eyebrow{font-size:8px;letter-spacing:.9px}.comparison-scroll{margin-inline:-18px;padding-inline:18px}.configuration-table{min-width:625px}.configuration-table th,.configuration-table td{padding:10px}.comparison-caption{font-size:10px}.network-section{padding:23px 18px}.network-heading{align-items:start;flex-direction:column;gap:9px}.network-metrics{grid-template-columns:1fr 1fr;gap:20px 15px}.network-stat b{font-size:29px}.network-stat span{font-size:11px}.network-stat small{font-size:10px}.network-warning{font-size:11px;padding:12px}.crossing-example{align-items:start;flex-direction:column;gap:9px}.findings-section{padding:42px 0}.findings-section .section-intro h2{font-size:33px}.findings-grid{grid-template-columns:1fr;gap:25px;margin:25px 0}.finding-number{font-size:32px}.finding-caution{padding:15px 17px}.map-panel.editing .map-instruction{background:#dde9d2;color:#304b28}.comparison-table button{font-size:12px}}
+@media print{.lab-button,.custom-toolbar,.custom-help,.crossing-example button{display:none}.configuration-table{min-width:0;font-size:10px}.configuration-table th{white-space:normal}.comparison-scroll{overflow:visible}.network-section,.findings-grid article{break-inside:avoid}.findings-section{padding-block:30px}}
+
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#explore">Skip to the route explorer</a>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+<symbol id="i-up-right" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/></symbol>
+<symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 3v17m-4-4 4 4 4-4m6 5V4m-4 4 4-4 4 4"/></symbol>
+<symbol id="i-car" viewBox="0 0 24 24"><path d="m4 10 2-6h12l2 6m-17 0h18v9H3zm2 9v2m14-2v2M6 14h2m8 0h2"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2Zm6-2v16m6-14v16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+</defs></svg>
+<div class="shell">
+<header class="site-header">
+<a class="brand" href="#" aria-label="Wallingford neighborhood streets, back to top"><svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M8 2v36M32 2v36M2 12h36M2 28h36" stroke="currentColor" stroke-width="2"/><path d="M20 2v10m0 16v10M2 20h6m24 0h6" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="20" r="5" fill="currentColor"/></svg><span class="brand-name">Wallingford<span class="brand-sub">NEIGHBORHOOD STREETS</span></span></a>
+<nav class="nav" aria-label="Main navigation"><a href="#idea">The idea</a><a href="#circles">Original circles</a><a href="#questions">Good questions</a><a class="nav-cta" href="#explore">Explore your route <svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg></a></nav>
+</header>
+<main>
+<section class="hero" aria-labelledby="page-title"><div><div class="eyebrow"><span class="seed"></span> South Wallingford circulation plan</div><h1 id="page-title">A little less traffic.<br><em>A lot more<br>neighborhood.</em></h1></div><div class="hero-copy"><p>What if our streets were a place to be,<br>instead of a way to cut through?</p><p style="margin-top:13px">Explore different ways to guide through-traffic toward the main roads, while keeping <strong>local car access, walking, and biking connected.</strong></p><a class="hero-link" href="#explore">See what changes for your trip <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></section>
+<div class="context-strip"><span class="location"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Stone Way to Wallingford Ave · N 35th to N 40th</span><div class="context-facts"><span><b>4</b> alternative plans</span><span>Build your own</span><span>Community concept</span></div></div>
+<section class="explorer" id="explore" aria-labelledby="explorer-title">
+<div class="explorer-heading"><div><h2 id="explorer-title">Your neighborhood. Your route.</h2><p>Compare your trip across plans, or make your own configuration.</p></div><div class="live-badge"><span></span> Interactive map</div></div>
+<noscript><p class="noscript-note">Enable JavaScript to use the route comparison and street map. The proposal and intersection sketch are explained below.</p></noscript>
+
+<div class="lab-controls">
+ <div class="configuration-picker"><div><label class="section-label" for="configuration">Configuration on the map</label><select id="configuration" aria-describedby="configuration-description"></select></div><button id="make-custom" class="lab-button">Make your own <span aria-hidden="true">↗</span></button></div>
+ <p id="configuration-description" class="configuration-description"></p>
+ <div id="custom-tools" hidden><div class="custom-toolbar"><div class="edit-switch" role="group" aria-label="Custom map interaction"><button id="mode-route" aria-pressed="false">Choose a trip</button><button id="mode-edit" aria-pressed="true">Edit intersections</button></div><button id="custom-original" class="text-button">Reset to original 7</button><button id="custom-clear" class="text-button">Clear restrictions</button></div><p class="custom-help">In edit mode, tap an interior intersection to switch right-turn-only on or off. Amber T-junctions may leave an approach without an exit. Perimeter roads stay unchanged.</p></div>
+ <div id="configuration-status" class="configuration-status" role="status"></div>
+</div>
+
+
+<div class="explorer-body">
+<div class="planner">
+<div class="planner-top"><span>Where are you headed?</span><span class="driving"><svg class="icon" aria-hidden="true"><use href="#i-car"/></svg> Driving</span></div>
+<div class="endpoints">
+<div class="endpoint" id="endpoint-from"><span class="endpoint-letter" aria-hidden="true">A</span><label for="from">Starting point</label><select class="route-select" id="from"><option value="">Choose a street</option></select><button class="pick-map" id="pick-from" aria-label="Choose starting point on the map" aria-pressed="false" title="Choose on the map"><svg class="icon" aria-hidden="true"><use href="#i-crosshair"/></svg></button></div>
+<div class="endpoint" id="endpoint-to"><span class="endpoint-letter b" aria-hidden="true">B</span><label for="to">Destination</label><select class="route-select" id="to"><option value="">Choose a street</option></select><button class="pick-map" id="pick-to" aria-label="Choose destination on the map" aria-pressed="false" title="Choose on the map"><svg class="icon" aria-hidden="true"><use href="#i-crosshair"/></svg></button></div>
+<div class="endpoint-actions"><button class="text-button" id="swap"><svg class="icon" aria-hidden="true"><use href="#i-swap"/></svg> Reverse trip</button><button class="text-button" id="reset">Clear route</button></div>
+</div>
+<div class="quick-trips"><span class="section-label">Try a neighborhood trip</span><div class="presets"><button class="preset" data-preset="0" aria-pressed="true">Across N 36th</button><button class="preset" data-preset="1" aria-pressed="false">Down Woodlawn</button><button class="preset" data-preset="2" aria-pressed="false">Up to N 40th</button><button class="preset" data-preset="3" aria-pressed="false">Visit a neighbor</button><button class="preset" data-preset="4" aria-pressed="false">Coming home</button></div></div>
+<div class="route-results" id="results" aria-live="polite" aria-atomic="true"></div>
+<p class="model-note">Illustrative driving estimates, not live navigation. Assumes 20 mph on local streets, 25 mph on main roads, plus intersection delays. <a href="#assumptions">About the model</a></p>
+</div>
+<div class="map-panel">
+<div class="map-toolbar"><span class="map-title"><svg class="icon" aria-hidden="true"><use href="#i-map"/></svg> South Wallingford</span><div class="view-switch" role="group" aria-label="Routes shown on map"><button id="view-both" aria-pressed="true">Compare</button><button id="view-today" aria-pressed="false">Today</button><button id="view-plan" aria-pressed="false">Selected</button></div></div>
+<div class="map-wrap">
+<svg id="map" class="map-svg" viewBox="-35 -33 620 610" role="group" tabindex="0" aria-labelledby="map-title map-description"><title id="map-title">South Wallingford street and route map</title><desc id="map-description">Schematic street network bounded by Stone Way, N 40th, Wallingford Avenue and N 35th. Click a street to select a trip endpoint, or use the starting point and destination menus. The seven numbered buttons describe proposed circles.</desc><defs><pattern id="map-grain" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".45" fill="#869b76" opacity=".16"/></pattern></defs>
+<g id="areas"><path d="M30 20H426V222H330V259H30Z" fill="#e4ebd8"/><path d="M30 259H330V222H426V538H30Z" fill="#e6eada"/><path d="M426 20H518V538H426Z" fill="#f0ead6"/><path d="M30 20H518V538H30Z" fill="url(#map-grain)"/></g>
+<g id="streets"></g><g id="area-labels" aria-hidden="true"><text x="271" y="62" class="area-letter">A</text><text x="62" y="364" class="area-letter">B</text><text x="465" y="62" class="area-letter">C</text></g>
+<path id="route-halo" class="route-halo" d=""/><path id="route-plan" class="route-plan" d=""/><path id="route-today" class="route-today" d=""/>
+<g id="street-labels" aria-hidden="true"></g><g id="pins"></g><circle id="ghost" class="ghost" r="5" cx="-100" cy="-100"/>
+<g id="marker-a" class="map-marker" transform="translate(-100 -100)" aria-hidden="true"><circle r="12"/><text y="3.5">A</text></g><g id="marker-b" class="map-marker destination" transform="translate(-100 -100)" aria-hidden="true"><circle r="12"/><text y="3.5">B</text></g>
+<g transform="translate(563 48)" aria-hidden="true"><text y="-20" text-anchor="middle" fill="#66755c" font-size="9" font-family="var(--sans)">N</text><path d="M0-10 5 7 0 3-5 7Z" fill="#526749"/><path d="M0 3V18" stroke="#526749"/></g>
+</svg>
+<aside class="circle-popup" id="circle-popup" aria-label="Selected circle" hidden><button class="close-popup" id="close-popup" aria-label="Close circle details"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button><div class="popup-kicker" id="popup-kicker"></div><h3 id="popup-title"></h3><p id="popup-description"></p></aside>
+</div>
+<div class="map-footer"><div class="map-legend"><span><i class="swatch today"></i> Today</span><span><i class="swatch"></i> Selected route</span><span><i class="legend-pin">↱</i> Right-turn-only circle</span></div><div class="map-zoom" role="group" aria-label="Map zoom controls"><button id="zoom-out" aria-label="Zoom out" disabled>−</button><button id="zoom-fit" aria-label="Fit entire neighborhood" title="Fit entire neighborhood">Fit</button><button id="zoom-in" aria-label="Zoom in">+</button></div><span class="schematic-note">Schematic · not to scale</span></div>
+<p class="map-instruction" id="map-instruction" role="status">Choose a sample trip, or tap two streets to make your own.</p>
+</div></div>
+<div class="comparison-section" aria-labelledby="comparison-title"><div class="comparison-heading"><div><span class="eyebrow">The same trip, in every configuration</span><h3 id="comparison-title">See the tradeoffs side by side.</h3></div><p>Select a plan name to see it on the map. Scroll the table on smaller screens.</p></div><div class="comparison-scroll" role="region" aria-label="Configuration comparisons, scroll horizontally on small screens" tabindex="0"><table class="configuration-table"><thead><tr><th scope="col">Configuration</th><th scope="col">Your trip</th><th scope="col">Added time</th><th scope="col">Opposite-edge routes</th><th scope="col">Access checks</th></tr></thead><tbody id="configuration-rows"></tbody></table></div><p class="comparison-caption">Opposite-edge routes count 64 directional trips between gateways on opposite perimeter roads, using local streets only. These are possible connections, not traffic volumes. Trip times use the full network.</p></div>
+<div class="network-section" aria-labelledby="network-title"><div class="network-heading"><div><span class="eyebrow">Neighborhood-wide check</span><h3 id="network-title"></h3></div><span id="network-badge"></span></div><div class="network-metrics" id="network-metrics"></div><div id="network-warnings"></div><details class="audit-details"><summary>What these checks cover</summary><p>Local access checks all 47 local street segments for an entry and an exit from a perimeter road. A separate check traces both directions of travel to catch blocked approaches and loops with no way out. This checks the simplified network, not individual driveways, curb access, emergency turning space, or engineering feasibility.</p><p>Crossing counts stop when a route first reaches a perimeter road. A route that leaves and re-enters the neighborhood is not counted as a local-only crossing. Adjacent-edge trips and same-edge return trips can still be possible. Timing estimates depend on assumed speeds and signal delays.</p></details><div id="crossing-examples"></div></div>
+
+</section>
+<section class="idea" id="idea" aria-labelledby="idea-title"><div class="section-intro"><div><div class="eyebrow">01 / The idea</div><h2 id="idea-title">Still connected.<br>Just a little quieter.</h2></div><p>Think of the main roads as hallways and the neighborhood areas as rooms. You can still get into every room. The aim is to stop the rooms becoming shortcuts.</p></div>
+<div class="principles">
+<article class="principle"><svg class="principle-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m5 21 17-15 17 15M10 17v21h24V17M18 38V25h8v13"/><path d="M5 41h34" stroke="#b0c0a1"/></svg><span class="principle-number">01</span><h3>Home is still on the way.</h3><p>The proposal is designed to keep every address reachable by car from a main road. Some trips take a different approach; most intersections stay as they are.</p></article>
+<article class="principle"><svg class="principle-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M11 39V24c0-10 5-15 15-15h11M30 2l7 7-7 7"/><path d="M20 39V25c0-5 2-7 7-7h10" stroke="#b0c0a1"/><circle cx="9" cy="9" r="3"/></svg><span class="principle-number">02</span><h3>A turn, not a dead end.</h3><p>Right-turn-only changes a driver’s direction. The goal is to keep a way out from every approach; the live checks flag missing exits and loops.</p></article>
+<article class="principle"><svg class="principle-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="10" cy="30" r="8"/><circle cx="35" cy="30" r="8"/><path d="m10 30 8-15 9 15H10m8-15h12l5 15M15 11h7m5-5h4l-1 9"/></svg><span class="principle-number">03</span><h3>Keep the short way on foot.</h3><p>Gaps in the proposed islands let people walking and biking continue through. The goal is a calmer, more comfortable local street network.</p></article>
+</div></section>
+
+<section class="findings-section" id="findings" aria-labelledby="findings-title"><div class="section-intro"><div><div class="eyebrow">What the street model tells us</div><h2 id="findings-title">Seven can work.<br>Placement makes the difference.</h2></div><p>The original seven keep access open, but they do not form closed traffic cells. An exhaustive search found a stronger seven-intersection arrangement for one specific goal: stopping local-only trips between opposite edges.</p></div><div class="findings-grid"><article><span class="finding-number">44 / 64</span><h3>Crossings survive the original plan.</h3><p>The N 37th connection and the staggered N 38th blocks leave usable paths. Eighteen of the tested opposite-edge local routes are still faster than staying on the perimeter under the stated timing assumptions.</p></article><article><span class="finding-number">0 / 64</span><h3>A different seven closes those crossings.</h3><p>Put restrictions at Interlake &amp; N 39th, Interlake &amp; N 38th, and all five interior intersections on N 36th. The model retains entry and exit for all 47 local segments, with no trapped travel directions.</p></article><article><span class="finding-number">28 / 126</span><h3>Corner-cutting still needs attention.</h3><p>The repositioned seven still connects some gateways on adjacent edges. The ten-intersection option reduces that count to four. Neither result predicts real traffic volumes or proves a design is ready to build.</p></article></div><div class="finding-caution"><b>More restrictions can make access worse.</b> Right-turn-only at Carr Place &amp; N 39th leaves westbound traffic with no northbound exit in this T-junction. Four right-turn-only corners around one block can also trap vehicles in a loop. Custom mode checks for both.</div><details class="audit-details"><summary>How the alternatives were selected</summary><p>The search evaluated all 32,768 subsets of the 15 interior four-way intersections in the supplied map. It rejected configurations with inaccessible segments or any travel direction that could not reach the perimeter. Among the remaining configurations, it minimized opposite-edge connections, then adjacent-edge connections. Seven is the smallest number that eliminates all 64 opposite-edge connections under those rules; two seven-intersection arrangements do so.</p><p>Seattle Streets data confirms Carr &amp; N 39th is a T-junction and identifies the short upper Carr–Woodlawn connection as N 38th Ct. It also shows that the original distance scale was too large; the explorer now uses about 0.29 mile east–west and 0.45 mile north–south.</p><p>This search does not optimize driveway access, resident travel time, cost, emergency response, or real traffic redistribution. It excludes other interventions and changes to perimeter roads. The repositioned seven is a candidate for investigation, not a construction recommendation.</p><p><a href="wallingford-circulation-analysis.md">Read the analysis and source notes</a></p></details></section>
+
+
+<section class="circles-section" id="circles" aria-labelledby="circles-title"><div class="circles-heading"><div class="eyebrow">02 / The original seven intersections</div><h2 id="circles-title">A new direction for<br>familiar intersections.</h2><p>The original concept follows N 38th Street and Densmore Avenue. Select an intersection to return to that configuration and find it on the map.</p></div>
+<div class="circle-layout"><div class="treatment-list" id="treatments"></div><article class="circle-explanation"><div class="eyebrow">A closer look · Circle 7</div><h3>Right turns for cars.<br>A way through for people.</h3><p>Densmore Ave N &amp; N 36th St</p>
+<svg class="junction-svg" viewBox="0 0 360 360" role="img" aria-labelledby="junction-title junction-desc"><title id="junction-title">How a right-turn-only circle works</title><desc id="junction-desc">A central island and four median arms guide incoming cars right. Gaps between the medians and island allow walking and cycling through. Northbound cars turn east, eastbound cars turn south, southbound cars turn west, and westbound cars turn north.</desc><defs><marker id="flow-arrow" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0 0 5 3 0 6" fill="none" stroke="#245b43" stroke-width="1.3"/></marker></defs>
+<rect width="360" height="360" rx="8" fill="#fafbf5"/><g fill="#dce6cf" stroke="#c8d5b9" stroke-width="1.5"><path d="M0 0H135V108Q135 135 108 135H0Z"/><path d="M360 0H225V108Q225 135 252 135H360Z"/><path d="M0 360H135V252Q135 225 108 225H0Z"/><path d="M360 360H225V252Q225 225 252 225H360Z"/></g>
+<g fill="#afc399" stroke="#779262" stroke-width="1.5"><circle cx="180" cy="180" r="17"/><rect x="177" y="43" width="6" height="97" rx="3"/><rect x="177" y="220" width="6" height="97" rx="3"/><rect x="43" y="177" width="97" height="6" rx="3"/><rect x="220" y="177" width="97" height="6" rx="3"/></g>
+<g class="car-flow" marker-end="url(#flow-arrow)"><path d="M155 34V105Q155 155 105 155H31"/><path d="M326 155H255Q205 155 205 105V31"/><path d="M205 326V255Q205 205 255 205H329"/><path d="M34 205H105Q155 205 155 255V329"/></g>
+<path class="bike-flow" d="M150 12V348M12 211H348"/><g fill="#5a6d4d" font-family="var(--sans)" font-size="8" font-weight="500"><text x="18" y="126">N 36TH ST</text><text transform="translate(126 117) rotate(-90)">DENSMORE AVE N</text><text x="242" y="276">Central island</text><path d="M238 270 196 197" stroke="#728562" stroke-width=".8"/><text x="22" y="274">Walking &amp;</text><text x="22" y="286">biking gap</text><path d="M70 260 146 212" stroke="#728562" stroke-width=".8"/><text x="321" y="36" text-anchor="middle">N</text><path d="m321 43-3 9 3-2 3 2Z" fill="#5a6d4d"/></g>
+</svg>
+<div class="diagram-legend"><span><i></i> Cars turn right</span><span><i class="bike"></i> People go through</span></div><p class="diagram-note">Concept sketch. Raised medians extend from the existing circle, with gaps for walking and biking. Dimensions, accessibility, sight lines, and emergency access need engineering review.</p></article></div></section>
+<section class="questions" id="questions" aria-labelledby="questions-title"><div class="questions-intro"><div class="eyebrow">03 / Let's talk details</div><h2 id="questions-title">Good questions.<br>Honest answers.</h2><p>This is a starting point for a neighborhood conversation. Here's what the concept proposes, and what still needs to be worked out.</p></div><div class="faqs">
+<details><summary>What happens to today's shortcuts?</summary><div class="faq-answer"><p>Right-turn-only circles interrupt direct cross-neighborhood trips. These are the first forced turns along some familiar shortcuts; the route explorer compares complete trips.</p><table class="faq-table"><thead><tr><th scope="col">Current shortcut</th><th scope="col">Proposed change</th></tr></thead><tbody><tr><td>East across N 36th</td><td>Turn south at Densmore (7), toward N 35th.</td></tr><tr><td>South on Woodlawn</td><td>Turn west at upper N 38th (4).</td></tr><tr><td>North on Interlake</td><td>Turn east at N 38th (1), then south at Ashworth (2).</td></tr><tr><td>East across N 39th</td><td>Turn south at Densmore (6).</td></tr><tr><td>South on Densmore</td><td>Turn west at N 39th (6).</td></tr></tbody></table><p>Drivers may find other paths. The model cannot establish whether actual traffic volumes or travel times would change as intended.</p></div></details>
+<details><summary>Can residents, visitors, and deliveries still get in?</summary><div class="faq-answer"><p>The proposal aims to retain car access to every address from at least one perimeter road: Stone Way, N 40th, N 35th, or Wallingford Avenue. Right turns provide an exit at each treated intersection, rather than creating dead ends.</p><p>Getting to a particular home may mean approaching from a different direction. Try the <b>Coming home</b> and <b>Visit a neighbor</b> examples, or choose your own points on the map.</p></div></details>
+<details><summary>What about parking?</summary><div class="faq-answer"><p>The original concept proposes residential permit parking in all three areas. That would require a separate city process; changing the intersections does not create a permit zone.</p><p>Less through-traffic might mean fewer outside drivers searching for parking, but that is an outcome to measure. Re-striping unused corner space might add parking, subject to sight lines, pedestrian safety, and fire access. <b>No additional spaces are assumed.</b></p></div></details>
+<details><summary>How would fire trucks and larger vehicles get through?</summary><div class="faq-answer"><p>The concept suggests low, mountable curbs on the medians and central islands so emergency and service vehicles can cross them when necessary. Vehicle turning paths and response access need review with SDOT and the relevant services.</p><p>The initial sketch suggests medians roughly a foot wide and 25 feet long, with five-foot gaps at the circle. Those are starting dimensions, not an engineered or accessibility-approved design. Right-turn-only signs would reinforce the physical layout.</p></div></details>
+<details><summary>Are there still ways to cut through?</summary><div class="faq-answer"><p>Yes. These are planning areas, not fully sealed traffic cells. Keeping changes to seven intersections leaves some indirect paths open:</p><ul><li><b>N 37th at Densmore stays open.</b> Drivers can use N 36th, Carr Place, and N 37th to reach Wallingford Avenue.</li><li><b>A north–south zigzag remains:</b> Woodlawn → lower N 38th → Carr Place → N 39th → Ashworth. An all-approach right-turn-only device at Carr Place and N 39th would leave an approach without an exit at that T-junction. The laboratory compares other layouts.</li></ul><p>A trial should measure these routes as well as any traffic displaced onto the perimeter roads.</p></div></details>
+<details id="assumptions"><summary>How are the routes and travel times calculated?</summary><div class="faq-answer"><p>The explorer uses the original page's simplified street network, with its overall scale checked against Seattle Streets data and the upper Carr–Woodlawn link corrected to N 38th Ct. It finds the lowest estimated driving time between your points, without U-turns. In each configuration, cars may only turn right at the marked intersections. The turn rules are shared by the route planner and the network access checks.</p><p>It assumes <b>20 mph on local streets</b>, <b>25 mph on perimeter roads</b>, a 25-second delay at the four perimeter corner signals, and smaller delays for turns and other intersections. The scale is approximately 0.29 mile from Stone Way to Wallingford Avenue, calibrated against Seattle Streets centerlines. This also gives about 0.45 mile north–south. Individual block lengths remain schematic.</p><p>At an intersection endpoint, the trip starts or ends there; an incoming turn is checked only when passing through. This is a schematic comparison, not live directions. It excludes real-time traffic, exact signal timing, gradients, and trips outside the mapped network. Small estimated differences should not be read as precise predictions.</p></div></details>
+<details><summary>Is this an approved city plan?</summary><div class="faq-answer"><p>No. This is a community concept for discussion, not an adopted SDOT project. A real proposal would need neighborhood input, engineering and accessibility review, emergency-service coordination, and traffic monitoring.</p></div></details>
+</div></section>
+<section class="footer-callout" aria-labelledby="callout-title"><div><h2 id="callout-title">Start with a trip you know.</h2><p>The best way to understand the idea is to try your own route.</p></div><a href="#explore">Back to the map <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></section>
+</main>
+<footer class="site-footer"><span><b>South Wallingford</b> · A neighborhood circulation concept</span><p>For conversation, not navigation. Street layout and travel times are illustrative.<br>Not affiliated with or approved by the City of Seattle.</p></footer>
+</div>
+<script>
+'use strict';
+
+const NS="http://www.w3.org/2000/svg";
+// Approximate scale checked against Seattle Streets centerlines, November 2026.
+const MILES_PER_UNIT=0.29/488;
+// ---------- street graph (schematic coordinates; GIS-calibrated scale above) ----------
+const X={S:30,I:122,A:212,C:283,Wd:330,D:426,Wf:518}, Y={40:20,'39w':201,'39e':177,'38l':367,'38u':313,37:448,36:620,35:770};
+const N={};
+const node=(id,x,y)=>{N[id]={id,x,y,streets:new Set()}};
+[['S40','S',40],['I40',155,20],['A40',232,20],['Wd40','Wd',40],['D40','D',40],['Wf40','Wf',40],
+ ['S39','S','39w'],['S38','S','38l'],['S36','S',36],['S35','S',35],
+ ['I35','I',35],['A35','A',35],['C35','C',35],['Wd35','Wd',35],['D35','D',35],['Wf35','Wf',35],
+ ['Wf39','Wf','39e'],['Wf38','Wf','38u'],['Wf37','Wf',37],['Wf36','Wf',36],
+ ['I39','I','39w'],['A39w','A','39w'],['A39e','A','39e'],['C39','C','39e'],['Wd39','Wd','39e'],['D39','D','39e'],
+ ['I38','I','38l'],['A38','A','38l'],['C38l','C','38l'],['Wd38l','Wd','38l'],
+ ['C38u','C','38u'],['Wd38u','Wd','38u'],['D38','D','38u'],
+ ['C37','C',37],['Wd37','Wd',37],['D37','D',37],
+ ['I36','I',36],['A36','A',36],['C36','C',36],['Wd36','Wd',36],['D36','D',36]
+].forEach(([id,a,b])=>node(id,typeof a==='number'?a:X[a],(b in Y)?Y[b]:b));
+const E=[];
+function edge(a,b,street,art,geom){E.push({a,b,street,art:!!art,geom:geom||[[N[a].x,N[a].y],[N[b].x,N[b].y]]});N[a].streets.add(street);N[b].streets.add(street)}
+function line(street,ids,art){for(let i=0;i<ids.length-1;i++)edge(ids[i],ids[i+1],street,art)}
+const quad=(p0,c,p1,n=10)=>Array.from({length:n+1},(_,i)=>{const t=i/n,u=1-t;return[u*u*p0[0]+2*u*t*c[0]+t*t*p1[0],u*u*p0[1]+2*u*t*c[1]+t*t*p1[1]]});
+line('N 40th St',['S40','I40','A40','Wd40','D40','Wf40'],1);
+line('Stone Way N',['S40','S39','S38','S36','S35'],1);
+line('N 35th St',['S35','I35','A35','C35','Wd35','D35','Wf35'],1);
+line('Wallingford Ave N',['Wf40','Wf39','Wf38','Wf37','Wf36','Wf35'],1);
+line('N 39th St',['S39','I39','A39w']);
+line('N 39th St',['A39e','C39','Wd39','D39','Wf39']);
+line('N 38th St',['S38','I38','A38','C38l','Wd38l']);
+line('N 38th Ct',['C38u','Wd38u']);
+line('N 38th St',['Wd38u','D38','Wf38']);
+line('N 37th St',['C37','Wd37','D37','Wf37']);
+line('N 36th St',['S36','I36','A36','C36','Wd36','D36','Wf36']);
+edge('I40','I39','Interlake Ave N',0,quad([155,20],[124,120],[122,201]));
+line('Interlake Ave N',['I39','I38','I36','I35']);
+edge('A40','A39e','Ashworth Ave N',0,quad([232,20],[214,90],[212,177]));
+line('Ashworth Ave N',['A39e','A39w','A38','A36','A35']);
+line('Carr Pl N',['C39','C38u','C38l','C37','C36','C35']);
+line('Woodlawn Ave N',['Wd40','Wd39','Wd38u','Wd38l','Wd37','Wd36','Wd35']);
+line('Densmore Ave N',['D40','D39','D38','D37','D36','D35']);
+
+const PIN_IDS=['I38','A38','C38l','Wd38u','D38','D39','D36'];
+const PINS=new Set(PIN_IDS);
+const SIGNALS=new Set(['S40','S35','Wf40','Wf35']);
+const short=s=>s.replace(' Ave N','').replace(' Pl N',' Pl').replace(' Way N',' Way').replace(/^N (\d+th) St$/,'N $1');
+const nodeLabel=n=>n.id==='Wd38u'?'Woodlawn & N 38th St / Ct':[...n.streets].filter((v,i,a)=>a.indexOf(v)===i).slice(0,2).map(short).join(' & ');
+
+// ---------- snapping a tap to the street network ----------
+function nearestOnEdges(edges,p){
+  let best=null;
+  edges.forEach((e,ei)=>{for(let i=0;i<e.geom.length-1;i++){
+    const [x1,y1]=e.geom[i],[x2,y2]=e.geom[i+1],dx=x2-x1,dy=y2-y1,L=dx*dx+dy*dy;
+    let t=L?((p[0]-x1)*dx+(p[1]-y1)*dy)/L:0;t=Math.max(0,Math.min(1,t));
+    const q=[x1+t*dx,y1+t*dy],d=Math.hypot(q[0]-p[0],q[1]-p[1]);
+    if(!best||d<best.d)best={ei,seg:i,q,d};
+  }});
+  return best;
+}
+function snap(edges,nodes,p){
+  for(const n of Object.values(nodes)) if(Math.hypot(n.x-p[0],n.y-p[1])<16) return {node:n.id};
+  const b=nearestOnEdges(edges,p); if(!b||b.d>40) return null;
+  const e=edges[b.ei];
+  for(const id of [e.a,e.b]) if(Math.hypot(nodes[id].x-b.q[0],nodes[id].y-b.q[1])<16) return {node:id};
+  return {edge:b};
+}
+function describeSnap(s){
+  if(s.node) return nodeLabel(N[s.node]);
+  const e=E[s.edge.ei]; const a=N[e.a],b=N[e.b];
+  const cross=n=>[...n.streets].filter(x=>x!==e.street).map(short)[0]||nodeLabel(n);
+  return `${short(e.street)}, between ${cross(a)} and ${cross(b)}`;
+}
+// Build a fresh graph with tapped points spliced into their streets
+function buildGraph(pts){
+  const nodes={};Object.values(N).forEach(n=>nodes[n.id]={...n});
+  let edges=E.map(e=>({...e,geom:e.geom.map(p=>p.slice())}));
+  const ids=[];
+  pts.forEach((p,k)=>{
+    const s=snap(edges,nodes,p);
+    if(!s){ids.push(null);return}
+    if(s.node){ids.push(s.node);return}
+    const {ei,seg,q}=s.edge,e=edges[ei],id='V'+k;
+    nodes[id]={id,x:q[0],y:q[1],streets:new Set([e.street])};
+    const g1=e.geom.slice(0,seg+1).concat([q]),g2=[q].concat(e.geom.slice(seg+1));
+    edges.splice(ei,1,{...e,b:id,geom:g1},{...e,a:id,geom:g2});
+    ids.push(id);
+  });
+  return {nodes,edges,ids};
+}
+// ---------- routing: fastest path, no U-turns, right-only at plan circles ----------
+const SEC_PER_UNIT_LOCAL=MILES_PER_UNIT/20*3600, SEC_PER_UNIT_ART=MILES_PER_UNIT/25*3600;
+const len=g=>g.reduce((s,p,i)=>i?s+Math.hypot(p[0]-g[i-1][0],p[1]-g[i-1][1]):0,0);
+const dirOut=g=>{const[a,b]=g;const d=Math.hypot(b[0]-a[0],b[1]-a[1]);return[(b[0]-a[0])/d,(b[1]-a[1])/d]};
+const dirIn=g=>{const a=g[g.length-2],b=g[g.length-1];const d=Math.hypot(b[0]-a[0],b[1]-a[1]);return[(b[0]-a[0])/d,(b[1]-a[1])/d]};
+function route(G,from,to,restrictions=new Set(),options={}){
+  const adj={};Object.keys(G.nodes).forEach(k=>adj[k]=[]);
+  G.edges.forEach((e,i)=>{if(options.network==='local'&&e.art||options.network==='perimeter'&&!e.art)return;adj[e.a].push({i,to:e.b,geom:e.geom,e});adj[e.b].push({i,to:e.a,geom:e.geom.slice().reverse(),e})});
+  const dist={},prev={},open=[{k:from+'|',n:from,inE:null,inG:null,inArt:null,c:0}];dist[from+'|']=0;
+  const seen=new Set();
+  while(open.length){
+    open.sort((a,b)=>a.c-b.c);const s=open.shift();
+    if(seen.has(s.k))continue;seen.add(s.k);
+    if(s.n===to){
+      const segs=[];let k=s.k;while(prev[k]){segs.unshift(prev[k]);k=prev[k].from}
+      return {cost:s.c,segs};
+    }
+    if(options.network==='local'&&boundaryNodes.has(s.n)&&s.n!==from)continue;
+    for(const a of adj[s.n]){
+      if(a.i===s.inE)continue; // no U-turns
+      let pen=0;
+      if(s.inG){
+        const di=dirIn(s.inG),dO=dirOut(a.geom);
+        if(!legalTurn(s.inG,a.geom,restrictions.has(s.n)))continue;
+        const turn=di[0]*dO[0]+di[1]*dO[1]<0.7;
+        if(SIGNALS.has(s.n))pen+=(options.signalDelay??25);else if(s.inArt!==a.e.art)pen+=6;else if(!a.e.art&&s.n[0]!=='V')pen+=3;
+        if(turn)pen+=4;
+      }
+      const c=s.c+pen+len(a.geom)*(a.e.art?SEC_PER_UNIT_ART:SEC_PER_UNIT_LOCAL);
+      const k=a.to+'|'+a.i;
+      if(dist[k]===undefined||c<dist[k]){dist[k]=c;prev[k]={from:s.k,nodeFrom:s.n,nodeTo:a.to,geom:a.geom,street:a.e.street,art:a.e.art};open.push({k,n:a.to,inE:a.i,inG:a.geom,inArt:a.e.art,c})}
+    }
+  }
+  return null;
+}
+
+
+// One turn rule shared by routing, reachability, and configuration evaluation.
+function legalTurn(inGeom,outGeom,restricted){
+ if(!restricted)return true;
+ const a=dirIn(inGeom),b=dirOut(outGeom);
+ return -a[1]*b[0]+a[0]*b[1]>=.7;
+}
+const boundaryNodes=new Set(E.filter(e=>e.art).flatMap(e=>[e.a,e.b]));
+const localEdges=E.map((e,i)=>({...e,index:i})).filter(e=>!e.art);
+const localAdj=Object.fromEntries(Object.keys(N).map(id=>[id,[]]));
+const localStates=[];
+for(const e of localEdges){
+ for(const [from,to,geom] of [[e.a,e.b,e.geom],[e.b,e.a,e.geom.slice().reverse()]]){
+  const state={id:localStates.length,from,to,geom,edge:e.index};localStates.push(state);localAdj[from].push(state.id);
+ }
+}
+const editableIds=Object.keys(N).filter(id=>!boundaryNodes.has(id)&&localAdj[id].length>=3);
+const fourWayIds=editableIds.filter(id=>localAdj[id].length===4);
+const gateways=Object.keys(N).filter(id=>boundaryNodes.has(id)&&localAdj[id].length>0);
+function sideOf(id){const n=N[id];return n.y===20?'north':n.y===770?'south':n.x===30?'west':'east'}
+const opposite={north:'south',south:'north',west:'east',east:'west'};
+const crossingPairs=gateways.flatMap(from=>gateways.filter(to=>sideOf(to)===opposite[sideOf(from)]).map(to=>({from,to})));
+function walkStates(seeds,adj){const seen=new Set(seeds),queue=[...seeds];for(let i=0;i<queue.length;i++)for(const next of adj[queue[i]])if(!seen.has(next)){seen.add(next);queue.push(next)}return seen}
+function networkMetrics(restrictions){
+ const next=localStates.map(s=>boundaryNodes.has(s.to)?[]:localAdj[s.to].filter(j=>localStates[j].edge!==s.edge&&legalTurn(s.geom,localStates[j].geom,restrictions.has(s.to))));
+ const reverse=localStates.map(()=>[]);next.forEach((ids,i)=>ids.forEach(j=>reverse[j].push(i)));
+ const incoming=walkStates(gateways.flatMap(id=>localAdj[id]),next);
+ const outgoing=walkStates(localStates.filter(s=>boundaryNodes.has(s.to)).map(s=>s.id),reverse);
+ const missingIn=localEdges.filter(e=>!localStates.some(s=>s.edge===e.index&&incoming.has(s.id))).map(e=>e.index);
+ const missingOut=localEdges.filter(e=>!localStates.some(s=>s.edge===e.index&&outgoing.has(s.id))).map(e=>e.index);
+ const noExit=localStates.filter(s=>!outgoing.has(s.id));
+ const blocked=localStates.filter(s=>!boundaryNodes.has(s.to)&&next[s.id].length===0);
+ const connected=new Map(gateways.map(from=>{const visited=walkStates(localAdj[from],next);return[from,new Set([...visited].map(i=>localStates[i].to).filter(id=>boundaryNodes.has(id)))]}));
+ const crossings=crossingPairs.filter(p=>connected.get(p.from).has(p.to));
+ const adjacent=gateways.flatMap(from=>gateways.filter(to=>to!==from&&sideOf(to)!==sideOf(from)&&sideOf(to)!==opposite[sideOf(from)]&&connected.get(from).has(to)).map(to=>({from,to})));
+ return {crossings,total:crossingPairs.length,adjacent,segments:localEdges.length,missingIn,missingOut,noExit:noExit.map(s=>({from:s.from,to:s.to,edge:s.edge})),blocked:blocked.map(s=>({from:s.from,to:s.to,edge:s.edge})),safe:missingIn.length===0&&missingOut.length===0&&noExit.length===0};
+}
+
+
+
+const fullGraph={nodes:N,edges:E};
+const configurations=[
+ {id:'today',name:'Today',short:'Today',ids:[],description:'Current unrestricted movements in the supplied street model.'},
+ {id:'original',name:'Original seven',short:'Original 7',ids:PIN_IDS.slice(),description:'The original N 38th and Densmore arrangement. Access remains open, with many indirect crossings still possible.'},
+ {id:'patch',name:'Add N 37th',short:'Patch 8',ids:[...PIN_IDS,'D37'],description:'Adds Densmore & N 37th to the original seven. A smaller change that closes some east–west paths.'},
+ {id:'repositioned',name:'Repositioned seven',short:'Repositioned 7',ids:['I39','I38','I36','A36','C36','Wd36','D36'],description:'Interlake at N 39th and N 38th, plus all five intersections on N 36th. Blocks the tested opposite-edge local crossings; some adjacent-edge routes remain.'},
+ {id:'tighter',name:'Tighter ten',short:'Tighter 10',ids:['I39','D39','I38','D38','D37','I36','A36','C36','Wd36','D36'],description:'Extends the repositioned seven along Densmore. Fewer adjacent-edge connections, with three more restrictions and different local approaches.'}
+];
+const configurationCache=new Map();
+const perimeterRoutes=crossingPairs.map(p=>route(fullGraph,p.from,p.to,new Set(),{network:'perimeter'}));
+function analyzeConfiguration(ids){
+ const restrictions=new Set(ids),key=[...restrictions].sort().join(',');
+ if(configurationCache.has(key))return configurationCache.get(key);
+ const topology=networkMetrics(restrictions);
+ const possible=new Set(topology.crossings.map(p=>p.from+'|'+p.to));
+ const examples=[];
+ crossingPairs.forEach((p,i)=>{
+  if(!possible.has(p.from+'|'+p.to))return;
+  const local=route(fullGraph,p.from,p.to,restrictions,{network:'local'}),perimeter=perimeterRoutes[i];
+  if(local&&perimeter)examples.push({...p,local,perimeter,saving:perimeter.cost-local.cost});
+ });
+ examples.sort((a,b)=>b.saving-a.saving);
+ const value={...topology,examples,faster:examples.filter(e=>e.saving>1).length};
+ configurationCache.set(key,value);return value;
+}
+function junctionLabel(id){let label=nodeLabel(N[id]);if(id==='C38l'||id==='Wd38l')label+=' (lower)';if(id==='C38u'||id==='Wd38u')label+=' (upper)';if(id==='A39w')label+=' (west)';if(id==='A39e')label+=' (east)';return label}
+
+
+
+// Projection changes only the illustration; routing uses the source geometry.
+const $=id=>document.getElementById(id);
+const project=p=>[p[0],20+(p[1]-20)*.69];
+const unproject=p=>[p[0],20+(p[1]-20)/.69];
+const svgEl=(tag,attrs={},parent)=>{const el=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));if(parent)parent.appendChild(el);return el};
+const geometryPath=g=>g.map((p,i)=>{const [x,y]=project(p);return (i?'L':'M')+x.toFixed(2)+' '+y.toFixed(2)}).join(' ');
+const routePath=r=>r?r.segs.map(s=>geometryPath(s.geom)).join(' '):'';
+const pointsForPreset=[[[30,620],[518,620]],[[330,20],[330,770]],[[30,770],[232,20]],[[212,520],[426,390]],[[426,20],[283,540]]];
+const treatments=[
+{name:'Interlake Ave N & N 38th St',short:'Interlake & N 38th',why:'Interrupts the north–south bypass of Stone Way.'},
+{name:'Ashworth Ave N & N 38th St',short:'Ashworth & N 38th',why:'Breaks up the straight north–south route.'},
+{name:'Carr Pl N & N 38th St (lower)',short:'Carr Place & N 38th · lower',why:'Limits the connection between the two parts of N 38th.'},
+{name:'Woodlawn Ave N & N 38th St (upper)',short:'Woodlawn & N 38th · upper',why:'Interrupts the direct Woodlawn shortcut.'},
+{name:'Densmore Ave N & N 38th St',short:'Densmore & N 38th',why:'Prevents a straight crossing of Densmore on N 38th.'},
+{name:'Densmore Ave N & N 39th St',short:'Densmore & N 39th',why:'Interrupts N 39th and the route south from N 40th.'},
+{name:'Densmore Ave N & N 36th St',short:'Densmore & N 36th',why:'Breaks up the direct east–west route across N 36th.'}
+];
+let endpoints=[null,null],view='both',pickIndex=null,selectedPreset=null,selectedCircle=null;
+const svg=$('map');
+function drawStreets(){
+ const group=$('streets');
+ for(const [isArterial,classes] of [[false,['street-border','street']],[true,['arterial-border','arterial','arterial-center']]]){
+  for(const cls of classes)for(const e of E.filter(e=>e.art===isArterial))svgEl('path',{d:geometryPath(e.geom),class:cls},group);
+ }
+ const labels=$('street-labels');
+ const label=(text,x,y,rotation=0,major=false)=>{const el=svgEl('text',{transform:'translate('+x+' '+y+') rotate('+rotation+')',class:major?'arterial-label':'map-label','text-anchor':'middle'},labels);el.textContent=text};
+ label('N 40TH ST',274,0,0,true);label('N 35TH ST',274,562,0,true);
+ label('STONE WAY N',9,274,-90,true);label('WALLINGFORD AVE N',541,274,90,true);
+ for(const [name,x,y] of [['Interlake Ave N',115,340],['Ashworth Ave N',205,340],['Carr Pl N',276,344],['Woodlawn Ave N',323,353],['Densmore Ave N',419,353]])label(name,x,y,-90);
+ for(const [name,x,y] of [['N 39th St',76,137],['N 39th St',476,119],['N 38th St',75,250],['N 38th St',476,213],['N 37th St',476,307],['N 36th St',77,427]])label(name,x,y);
+}
+function snapPoint(p){const s=snap(E,N,p);if(!s)return null;return {q:s.node?[N[s.node].x,N[s.node].y]:s.edge.q,s}}
+function syncSelects(){
+ ['from','to'].forEach((id,i)=>{
+  const select=$(id);select.querySelectorAll('[data-custom]').forEach(el=>el.remove());const point=endpoints[i];
+  if(!point){select.value='';return}if(point.s.node){select.value=point.s.node;return}
+  const option=new Option(describeSnap(point.s),'custom');option.dataset.custom='true';select.add(option);select.value='custom';
+ });
+}
+function populateSelects(){
+ const nodes=Object.values(N).filter(n=>n.streets.size>1).sort((a,b)=>nodeLabel(a).localeCompare(nodeLabel(b),undefined,{numeric:true}));
+ ['from','to'].forEach((id,i)=>{
+  for(const n of nodes){let label=nodeLabel(n);if(n.id==='C38l'||n.id==='Wd38l')label+=' (lower)';if(n.id==='C38u'||n.id==='Wd38u')label+=' (upper)';$(id).add(new Option(label,n.id))}
+  $(id).addEventListener('change',()=>{const n=N[$(id).value];endpoints[i]=n?snapPoint([n.x,n.y]):null;selectedPreset=null;pickIndex=endpoints[0]?(endpoints[1]?null:1):0;render()});
+  $('pick-'+id).addEventListener('click',()=>{interaction='route';lastEdited=null;pickIndex=pickIndex===i?null:i;render();$('map-instruction').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'})});
+ });
+}
+function loadPreset(index){interaction='route';lastEdited=null;resetMap();endpoints=pointsForPreset[index].map(snapPoint);selectedPreset=index;pickIndex=null;setCircle(null);render()}
+function streetsOf(r){const out=[];r.segs.forEach(s=>{const name=short(s.street);if(out.at(-1)!==name)out.push(name)});return out}
+const routeUnits=r=>r.segs.reduce((sum,s)=>sum+len(s.geom),0);
+const routeMiles=r=>(routeUnits(r)*MILES_PER_UNIT).toFixed(2);
+function pointerPoint(ev){const p=svg.createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;const matrix=svg.getScreenCTM();if(!matrix)return null;const q=p.matrixTransform(matrix.inverse());return unproject([q.x,q.y])}
+svg.addEventListener('pointermove',ev=>{if(ev.pointerType==='touch'||editingMap()){ $('ghost').style.display='none';return;}const raw=pointerPoint(ev),p=raw?snapPoint(raw):null;if(p&&!ev.target.closest('.map-pin')){const q=project(p.q);$('ghost').style.display='';$('ghost').setAttribute('cx',q[0]);$('ghost').setAttribute('cy',q[1])}else $('ghost').style.display='none'});
+svg.addEventListener('pointerleave',()=>$('ghost').style.display='none');
+svg.addEventListener('click',ev=>{if(ev.target.closest('.map-pin')||editingMap())return;const raw=pointerPoint(ev),p=raw?snapPoint(raw):null;if(!p){$('map-instruction').textContent='Choose a point closer to a street, or use the street menus.';return}setCircle(null);selectedPreset=null;if(pickIndex===null){if(endpoints.every(Boolean)||!endpoints[0]){endpoints=[p,null];pickIndex=1}else{endpoints[1]=p;pickIndex=null}}else{endpoints[pickIndex]=p;pickIndex=endpoints[0]?(endpoints[1]?null:1):0}render()});
+document.querySelectorAll('[data-preset]').forEach(button=>button.addEventListener('click',()=>loadPreset(Number(button.dataset.preset))));
+['both','today','plan'].forEach(v=>$('view-'+v).addEventListener('click',()=>{view=v;render()}));
+$('swap').addEventListener('click',()=>{endpoints.reverse();selectedPreset=null;pickIndex=null;render()});
+$('reset').addEventListener('click',()=>{endpoints=[null,null];pickIndex=0;selectedPreset=null;setCircle(null);render()});
+$('close-popup').addEventListener('click',()=>{const previous=selectedCircle;setCircle(null);if(previous!==null)$('junction-'+previous).focus({preventScroll:true})});
+document.addEventListener('keydown',ev=>{if(ev.key==='Escape'&&selectedCircle!==null){const previous=selectedCircle;setCircle(null);$('junction-'+previous).focus({preventScroll:true})}});
+function revealAnchor(){if(location.hash==='#assumptions')$('assumptions').open=true}
+window.addEventListener('hashchange',revealAnchor);document.querySelector('a[href="#assumptions"]').addEventListener('click',()=>$('assumptions').open=true);
+
+// Zoom stays local to the diagram. Drag or use arrow keys when zoomed in.
+const mapFrame={x:-35,y:-33,w:620,h:610};
+let mapZoom=1,mapView={...mapFrame},drag=null,suppressMapClick=false;
+function updateMapView(){
+ mapView.x=Math.max(mapFrame.x,Math.min(mapFrame.x+mapFrame.w-mapView.w,mapView.x));
+ mapView.y=Math.max(mapFrame.y,Math.min(mapFrame.y+mapFrame.h-mapView.h,mapView.y));
+ svg.setAttribute('viewBox',[mapView.x,mapView.y,mapView.w,mapView.h].join(' '));
+ svg.classList.toggle('zoomed',mapZoom>1);$('zoom-out').disabled=mapZoom<=1;$('zoom-in').disabled=mapZoom>=3;
+ $('zoom-fit').textContent=mapZoom===1?'Fit':Math.round(mapZoom*100)+'%';
+}
+function resetMap(){mapZoom=1;mapView={...mapFrame};updateMapView()}
+function changeZoom(factor){
+ const next=Math.max(1,Math.min(3,mapZoom*factor));
+ const cx=mapView.x+mapView.w/2,cy=mapView.y+mapView.h/2;
+ mapZoom=next;mapView.w=mapFrame.w/next;mapView.h=mapFrame.h/next;mapView.x=cx-mapView.w/2;mapView.y=cy-mapView.h/2;updateMapView();
+ $('map-instruction').textContent=mapZoom>1?'Drag the map to look around. Tap a street to choose a point.':'Tap two streets to try a new trip. Select a numbered circle to learn more.';
+}
+$('zoom-in').addEventListener('click',()=>changeZoom(1.5));$('zoom-out').addEventListener('click',()=>changeZoom(1/1.5));$('zoom-fit').addEventListener('click',()=>{resetMap();render()});
+svg.addEventListener('pointerdown',ev=>{if(mapZoom<=1||ev.target.closest('.map-pin')||ev.button!==0)return;drag={id:ev.pointerId,x:ev.clientX,y:ev.clientY,view:{...mapView},moved:false};suppressMapClick=false});
+svg.addEventListener('pointermove',ev=>{
+ if(!drag||drag.id!==ev.pointerId)return;
+ const dx=ev.clientX-drag.x,dy=ev.clientY-drag.y;
+ if(!drag.moved&&Math.hypot(dx,dy)<5)return;
+ drag.moved=true;svg.setPointerCapture(ev.pointerId);svg.classList.add('dragging');
+ const matrix=svg.getScreenCTM();mapView.x=drag.view.x-dx/matrix.a;mapView.y=drag.view.y-dy/matrix.d;updateMapView();$('ghost').style.display='none';
+});
+function finishDrag(ev){if(!drag||drag.id!==ev.pointerId)return;suppressMapClick=drag.moved;drag=null;svg.classList.remove('dragging');if(svg.hasPointerCapture(ev.pointerId))svg.releasePointerCapture(ev.pointerId)}
+svg.addEventListener('pointerup',finishDrag);svg.addEventListener('pointercancel',finishDrag);
+svg.addEventListener('click',ev=>{if(suppressMapClick){suppressMapClick=false;ev.preventDefault();ev.stopImmediatePropagation()}},true);
+svg.addEventListener('keydown',ev=>{if(ev.target!==svg||mapZoom<=1)return;const delta=30/mapZoom;if(ev.key==='ArrowLeft')mapView.x-=delta;else if(ev.key==='ArrowRight')mapView.x+=delta;else if(ev.key==='ArrowUp')mapView.y-=delta;else if(ev.key==='ArrowDown')mapView.y+=delta;else return;ev.preventDefault();updateMapView()});
+
+
+
+
+
+let selectedConfiguration='original',interaction='route',lastEdited=null;
+let customIds=new Set(PIN_IDS);
+try{const saved=JSON.parse(localStorage.getItem('wallingford-custom-turns-v1'));if(Array.isArray(saved))customIds=new Set(saved.filter(id=>editableIds.includes(id)))}catch{}
+function customConfiguration(){return {id:'custom',name:'Your configuration',short:'Your custom plan',ids:[...customIds],description:'Your own combination of right-turn-only intersections. The access checks and all trip comparisons update as you edit.'}}
+function currentConfiguration(){return selectedConfiguration==='custom'?customConfiguration():configurations.find(c=>c.id===selectedConfiguration)}
+function saveCustom(){try{localStorage.setItem('wallingford-custom-turns-v1',JSON.stringify([...customIds]))}catch{}}
+function editingMap(){return selectedConfiguration==='custom'&&interaction==='edit'}
+function selectConfiguration(id){selectedConfiguration=id;interaction=id==='custom'?'edit':'route';lastEdited=null;setCircle(null);render()}
+function toggleRestriction(id){if(!editableIds.includes(id))return;if(customIds.has(id))customIds.delete(id);else customIds.add(id);lastEdited=id;saveCustom();setCircle(null);render()}
+function initializeLaboratory(){
+ for(const c of [...configurations,customConfiguration()])$('configuration').add(new Option(c.name+' · '+c.ids.length+' restrictions',c.id));
+ $('configuration').addEventListener('change',()=>selectConfiguration($('configuration').value));
+ $('make-custom').addEventListener('click',()=>{customIds=new Set(currentConfiguration().ids);saveCustom();selectConfiguration('custom')});
+ $('custom-original').addEventListener('click',()=>{customIds=new Set(PIN_IDS);saveCustom();lastEdited=null;render()});
+ $('custom-clear').addEventListener('click',()=>{customIds.clear();saveCustom();lastEdited=null;render()});
+ ['route','edit'].forEach(mode=>$('mode-'+mode).addEventListener('click',()=>{interaction=mode;pickIndex=null;lastEdited=null;setCircle(null);render()}));
+}
+function setCircle(id,scroll=false){
+ if(typeof id==='number')id=PIN_IDS[id];
+ selectedCircle=id;
+ document.querySelectorAll('.map-pin').forEach(el=>{el.classList.toggle('selected',el.dataset.node===id);if(!editingMap())el.setAttribute('aria-pressed',String(el.dataset.node===id))});
+ document.querySelectorAll('.treatment').forEach(el=>{const selected=PIN_IDS[Number(el.dataset.circle)]===id;el.classList.toggle('selected',selected);el.setAttribute('aria-pressed',String(selected))});
+ $('circle-popup').hidden=id===null;
+ if(id!==null){
+  const config=currentConfiguration(),index=config.ids.indexOf(id),originalIndex=PIN_IDS.indexOf(id);
+  $('popup-kicker').textContent=config.name+' · '+(index>=0?'Restriction '+(index+1):'Unrestricted');
+  $('popup-title').textContent=junctionLabel(id);
+  $('popup-description').textContent=config.id==='original'&&originalIndex>=0?treatments[originalIndex].why:'All arriving cars may only turn right here in this configuration. Walking and biking are intended to remain connected.';
+  if(scroll){resetMap();$('map').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});$('junction-'+id).focus({preventScroll:true})}
+ }
+}
+function drawPins(){
+ svgEl('g',{id:'problem-edges'},$('streets'));
+ editableIds.forEach(id=>{
+  const [baseX,y]=project([N[id].x,N[id].y]);const offset=id==='A39w'?-12:id==='A39e'?12:0,x=baseX+offset;
+  const el=svgEl('g',{id:'junction-'+id,class:'map-pin',transform:'translate('+x+' '+y+')',role:'button',tabindex:'0','data-node':id},$('pins'));
+  const title=svgEl('title',{},el);title.textContent=junctionLabel(id);if(offset)svgEl('path',{d:'M0 0L'+(-offset)+' 0',stroke:'#9caa91','stroke-width':1.5,'pointer-events':'none'},el);
+  svgEl('circle',{r:19,class:'pin-halo'},el);svgEl('circle',{r:11,class:'pin-ring'},el);svgEl('text',{y:3.6},el);
+  const activate=()=>{if(editingMap())toggleRestriction(id);else if(pickIndex!==null){endpoints[pickIndex]=snapPoint([N[id].x,N[id].y]);selectedPreset=null;pickIndex=endpoints[0]?(endpoints[1]?null:1):0;render()}else setCircle(selectedCircle===id?null:id)};
+  el.addEventListener('click',ev=>{ev.stopPropagation();activate()});el.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();activate()}});
+ });
+ PIN_IDS.forEach((id,index)=>{
+  const button=document.createElement('button');button.className='treatment';button.dataset.circle=index;button.setAttribute('aria-pressed','false');
+  button.innerHTML='<span class="number">'+(index+1)+'</span><span><b>'+treatments[index].short+'</b><small>'+treatments[index].why+'</small></span><svg class="icon" aria-hidden="true"><use href="#i-up-right"/></svg>';
+  button.addEventListener('click',()=>{selectConfiguration('original');setCircle(id,true)});$('treatments').appendChild(button);
+ });
+}
+function renderPins(config){
+ const ids=new Set(config.ids),editing=editingMap();
+ for(const id of editableIds){
+  const el=$('junction-'+id),active=ids.has(id),t=localAdj[id].length===3;
+  el.toggleAttribute('hidden',!active&&!editing&&pickIndex===null);
+  el.classList.toggle('restricted',active);el.classList.toggle('unrestricted',!active);el.classList.toggle('t-junction',t&&editing);el.classList.toggle('selected',id===selectedCircle);
+  el.querySelector('text').textContent=editing?(active?'↱':t?'T':'+'):(active?config.ids.indexOf(id)+1:'+');
+  el.setAttribute('aria-label',junctionLabel(id)+': '+(active?'right-turn-only':'unrestricted')+(editing?'. Press to toggle.':'. Press for details.'));
+  el.setAttribute('aria-pressed',String(editing?active:id===selectedCircle));
+ }
+ document.querySelector('.map-panel').classList.toggle('editing',editing);
+}
+function routeCard(r,label,proposed){return '<div class="route-card '+(proposed?'proposed':'')+'"><div class="route-name"><i class="swatch '+(proposed?'':'today')+'"></i>'+label+'</div><div class="duration">'+(r?(r.cost/60).toFixed(1)+' <small>min</small>':'—')+'</div><p class="distance">'+(r?routeMiles(r)+' miles':'No route found')+'</p></div>'}
+function addedTime(seconds){const n=Math.max(0,Math.round(seconds));return n<60?n+' sec':(n/60).toFixed(1)+' min'}
+function renderTripResults(today,plan,config){
+ const [a,b]=endpoints;
+ if(!a||!b){$('results').innerHTML='<p class="result-empty">'+(a?'Choose your destination to compare every configuration.':'Choose a sample trip, two street menus, or two points on the map.')+'</p>';return}
+ if(today&&!today.segs.length){$('results').innerHTML='<p class="result-empty">You’re already there. Choose a different destination to compare a trip.</p>';return}
+ let verdict;
+ if(!plan)verdict='<strong>No route found in this configuration.</strong> Review the neighborhood access check below before adding more restrictions.';
+ else if(routePath(today)===routePath(plan))verdict='<strong>Same route. Same estimated time.</strong> This trip is unchanged by the selected restrictions.';
+ else{const local=r=>r.segs.filter(s=>!s.art).reduce((sum,s)=>sum+len(s.geom),0),reduction=local(today)-local(plan);verdict='<strong>'+addedTime(plan.cost-today.cost)+' added in this model.</strong> '+(reduction>20?'This trip uses '+(reduction*MILES_PER_UNIT).toFixed(2)+' fewer miles of local streets.':'The route takes a different approach. Compare the other configurations below.')}
+ const open=$('route-streets')?.open;
+ $('results').innerHTML='<span class="section-label">Your selected comparison</span><div class="result-grid">'+routeCard(today,'Today',false)+routeCard(plan,config.id==='today'?'Today':'Selected plan',true)+'</div><p class="verdict">'+verdict+'</p><details class="route-details" id="route-streets" '+(open?'open':'')+'><summary>See streets along each route</summary><p><b>Today</b>'+(today?streetsOf(today).join(' → '):'No route')+'</p><p><b>'+config.name+'</b>'+(plan?streetsOf(plan).join(' → '):'No route')+'</p></details>';
+}
+function renderComparison(graph,today){
+ const rows=[...configurations,customConfiguration()];
+ $('configuration-rows').innerHTML=rows.map(c=>{
+  const m=analyzeConfiguration(c.ids),r=graph?route(graph,graph.ids[0],graph.ids[1],new Set(c.ids)):null;
+  return '<tr class="'+(c.id===selectedConfiguration?'active':'')+'"><td><button data-configuration="'+c.id+'" aria-pressed="'+(c.id===selectedConfiguration)+'">'+c.name+'</button><small>'+c.ids.length+' restriction'+(c.ids.length===1?'':'s')+'</small></td><td>'+(r?(r.cost/60).toFixed(1)+' min<small>'+routeMiles(r)+' mi</small>':graph?'No route':'Choose a trip')+'</td><td>'+(r&&today?(Math.round(r.cost-today.cost)===0?'—':'+'+addedTime(r.cost-today.cost)):'—')+'</td><td>'+m.crossings.length+' / '+m.total+'</td><td><span class="access-pill '+(m.safe?'':'issue')+'">'+(m.safe?'Passes model':'Has issues')+'</span></td></tr>';
+ }).join('');
+ $('configuration-rows').querySelectorAll('[data-configuration]').forEach(button=>button.addEventListener('click',()=>{const id=button.dataset.configuration;selectConfiguration(id);$('configuration-rows').querySelector('[data-configuration="'+id+'"]').focus({preventScroll:true})}));
+}
+function edgeDescription(edgeIndex){const e=E[edgeIndex];return short(e.street)+' between '+junctionLabel(e.a)+' and '+junctionLabel(e.b)}
+function renderNetwork(config){
+ const m=analyzeConfiguration(config.ids);
+ $('configuration-status').classList.toggle('has-issues',!m.safe);
+ $('configuration-status').textContent=m.safe?'Modeled access passes: all '+m.segments+' local segments have a way in and out; no trapped travel directions.':'Access issues found: '+m.noExit.length+' directions without an exit; '+new Set([...m.missingIn,...m.missingOut]).size+' segments missing entry or exit. See the neighborhood check below.';
+ $('network-title').textContent=config.name;$('network-badge').innerHTML='<span class="access-pill '+(m.safe?'':'issue')+'">'+(m.safe?'Modeled access passes':'Access issues found')+'</span>';
+ const reachable=m.segments-new Set([...m.missingIn,...m.missingOut]).size;
+ const stats=[[''+m.crossings.length+' / '+m.total,'Opposite-edge connections','North ↔ south and west ↔ east, through local streets only.'],[''+m.adjacent.length+' / 126','Adjacent-edge connections','Possible routes between gateways on neighboring edges.'],[reachable+' / '+m.segments,'Local segments with access','A way in and a way out from at least one perimeter road.'],[''+m.noExit.length,'Directions with no exit','Blocked approaches or loops that cannot reach a main road.']];
+ $('network-metrics').innerHTML=stats.map(s=>'<div class="network-stat"><b>'+s[0]+'</b><span>'+s[1]+'</span><small>'+s[2]+'</small></div>').join('');
+ let warnings='';
+ if(m.blocked.length)warnings+='<p><b>A right turn does not exist on '+m.blocked.length+' approach'+(m.blocked.length===1?'':'es')+'.</b></p><ul>'+m.blocked.map(s=>'<li>Arriving at '+junctionLabel(s.to)+' from '+junctionLabel(s.from)+'.</li>').join('')+'</ul>';
+ if(m.noExit.length>m.blocked.length)warnings+='<p><b>Some travel directions cannot reach a perimeter road.</b> A sequence of restrictions can trap vehicles in a loop even when every intersection offers a right turn.</p>';
+ if(m.missingIn.length||m.missingOut.length)warnings+='<p><b>Some local segments lose access.</b> '+m.missingIn.length+' lack an entry from the perimeter; '+m.missingOut.length+' lack an exit.</p>';
+ $('network-warnings').innerHTML=warnings?'<div class="network-warning">'+warnings+'<p>Remove or reposition restrictions before treating this as an access-preserving layout. A route to your selected destination alone does not establish neighborhood access.</p></div>':'';
+ $('problem-edges').innerHTML='';for(const index of new Set(m.noExit.map(s=>s.edge)))svgEl('path',{d:geometryPath(E[index].geom),class:'problem-edge'},$('problem-edges'));
+ if(!m.examples.length){$('crossing-examples').innerHTML='<div class="crossing-examples"><p>No local-only opposite-edge routes remain in this configuration. Adjacent-edge connections, same-edge return trips, and trips that leave and re-enter the neighborhood may still exist.</p></div>';return}
+ $('crossing-examples').innerHTML='<div class="crossing-examples"><h4>Remaining local-only crossings</h4><p>'+m.faster+' of the 64 tested trips still have a local-only route that beats the perimeter-only route under the timing assumptions. This is not a forecast of driver behavior.</p>'+m.examples.slice(0,2).map((e,i)=>'<div class="crossing-example"><div>'+junctionLabel(e.from)+' → '+junctionLabel(e.to)+'<small>'+streetsOf(e.local).join(' → ')+'<br>Local-only: '+(e.local.cost/60).toFixed(1)+' min · Perimeter-only: '+(e.perimeter.cost/60).toFixed(1)+' min</small></div><button data-example="'+i+'">Try this trip ↗</button></div>').join('')+'<p style="margin-top:10px">“Try this trip” compares the fastest full-network route in every configuration.</p></div>';
+ $('crossing-examples').querySelectorAll('[data-example]').forEach(button=>button.addEventListener('click',()=>{const e=m.examples[Number(button.dataset.example)];endpoints=[e.from,e.to].map(id=>snapPoint([N[id].x,N[id].y]));selectedPreset=null;interaction='route';pickIndex=null;lastEdited=null;resetMap();render();$('map').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'})}));
+}
+function render(){
+ const config=currentConfiguration();syncSelects();
+ $('configuration').value=config.id;const customOption=$('configuration').querySelector('option[value="custom"]');if(customOption)customOption.textContent='Your configuration · '+customIds.size+' restrictions';
+ $('configuration-description').textContent=config.description;$('custom-tools').hidden=config.id!=='custom';$('make-custom').hidden=config.id==='custom';
+ ['route','edit'].forEach(mode=>$('mode-'+mode).setAttribute('aria-pressed',String(mode===interaction)));
+ ['both','today','plan'].forEach(v=>$('view-'+v).setAttribute('aria-pressed',String(v===view)));
+ ['from','to'].forEach((id,i)=>{$('endpoint-'+id).classList.toggle('active',pickIndex===i);$('pick-'+id).setAttribute('aria-pressed',String(pickIndex===i))});
+ document.querySelectorAll('[data-preset]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.preset)===selectedPreset)));
+ $('swap').disabled=!endpoints.every(Boolean);$('reset').disabled=!endpoints.some(Boolean);
+ $('areas').style.opacity=config.id==='original'&&view!=='today'?'.85':'.28';$('area-labels').style.display='none';$('pins').style.opacity=view==='today'&&!editingMap()?'.4':'1';renderPins(config);
+ endpoints.forEach((p,i)=>{const q=p?project(p.q):[-100,-100];$('marker-'+(i?'b':'a')).setAttribute('transform','translate('+q[0]+' '+q[1]+')')});
+ $('map-instruction').textContent=editingMap()?(lastEdited?junctionLabel(lastEdited)+': right-turn-only '+(customIds.has(lastEdited)?'on.':'off.'):'Tap an interior intersection to toggle right-turn-only. Use “Choose a trip” to move the endpoints.'):pickIndex!==null?'Tap a street to '+(pickIndex?'set your destination (B).':'set your starting point (A).'):'Tap two streets to try a new trip. Select a restriction to inspect it.';
+ let graph=null,today=null,plan=null;
+ if(endpoints.every(Boolean)){graph=buildGraph(endpoints.map(p=>p.q));if(graph.ids.some(id=>id===null))graph=null;else{today=route(graph,graph.ids[0],graph.ids[1],new Set());plan=route(graph,graph.ids[0],graph.ids[1],new Set(config.ids))}}
+ $('route-today').setAttribute('d',view==='plan'?'':routePath(today));$('route-plan').setAttribute('d',view==='today'?'':routePath(plan));$('route-halo').setAttribute('d',view==='today'?'':routePath(plan));
+ renderTripResults(today,plan,config);renderComparison(graph,today);renderNetwork(config);
+}
+
+
+$('ghost').style.display='none';drawStreets();drawPins();populateSelects();initializeLaboratory();loadPreset(1);revealAnchor();
+
+</script>
+</body>
+</html>
+
